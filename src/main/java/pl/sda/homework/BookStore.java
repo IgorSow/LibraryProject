@@ -8,7 +8,8 @@ import java.util.HashMap;
 public class BookStore {
 
     private final Set<Book> bookCollection;
-    private final Map<Book, Integer> bookStorage; // Magazyn ->> klucz książka (equals autor+tytuł) wartość - ilość sztuk w magazynie
+    private final Map<Book, Integer> bookStorage; // Magazyn ->> klucz książka (equals autor+tytuł)
+    // wartość - ilość sztuk w magazynie
 
     public BookStore() {
         Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
@@ -27,7 +28,6 @@ public class BookStore {
         bookCollection.add(book6);
 
 
-
         bookStorage = new HashMap<>();
         bookStorage.put(book1, 7);
         bookStorage.put(book2, 3);
@@ -37,22 +37,68 @@ public class BookStore {
         bookStorage.put(book6, 47);
     }
 
-    int collectionSize(){ // metoda pomocna do junitów - nie potrzebna do działania programu
+    int collectionSize() { // metoda pomocna do junitów - nie potrzebna do działania programu
         return bookCollection.size();
     }
+//    System.out.println("Amount of books in book store: " + bookStorage.get(book));
 
     public void showBookCollection() {
 //        bookCollection.forEach(System.out::println); //->> java 8 lambda skrócona
 //        bookCollection.forEach(book -> System.out.println(book));// ->> java 8 lambda
         for (Book book : bookCollection) { // pętla foreach -> iterujemy każdy element, ale nie mamy wiedzy która jest to iteracja
             System.out.println(book);
+
         }
     }
 
     public void addBook(Book book) {
         //dodać książkę do kolekcji
         bookCollection.add(book);
-        // TODO dla chętnych - jesli dodajemy do kolekcji książek nową pozycje to w magazynie powinna pojawić się taka z ilością 0.
+        bookStorage.put(book, 0);
+        // TODO dla chętnych - jesli dodajemy do kolekcji książek nową pozycje
+        // to w magazynie powinna pojawić się taka z ilością 0.
+
         System.out.println("Dodano nową książkę do kolekcji: " + book);
     }
+
+    public boolean findAuthorInCollection(String nameOfAuthor) {
+
+        for (Book book : bookCollection) {
+            if (book.getAuthor().equalsIgnoreCase(nameOfAuthor) == true) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeBookByTitle(String bookToRemove) {
+        // usuwa ksiazke z kolekcji po nazwie :
+
+        for (Book book : bookCollection) {
+
+            boolean compare = book.getTitle().equals(bookToRemove);
+
+            if (compare == true) {
+                bookCollection.remove(book);
+                System.out.println("Zostala usunieta ksiazka : ");
+                System.out.println(book);
+                System.out.println(collectionSize());
+            }
+        }
+    }
+
+    public void removeAllBooksOfAuthor(String nameOfAuthor) {
+
+        int amountOfRemovedBooks = 0;
+
+        for (Book book : bookCollection) {
+
+            if (true == book.getAuthor().equals(nameOfAuthor)) {
+                bookCollection.remove(book);
+            }
+        }
+        System.out.println("Usunieto : " + amountOfRemovedBooks + " ksiazek " + nameOfAuthor);
+    }
+
+
 }

@@ -7,7 +7,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         BookStore bookStore = new BookStore();
 
-        while (true) {
+        boolean repeat = true;
+        while (repeat) {
             System.out.println("Wybierz opcje");
             System.out.println("1. Wyświetl kolekcje książek (bez jakiegokolwiek sortowania)");
             System.out.println("2. Dodaj książkę do kolekcji");
@@ -34,12 +35,39 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("Wprowadź nową książkę w formacie: Autor, Tytuł, ocena"); // TODO zadanie dodatkowe sprawić by można było dodać książkę bez oceny
+                    System.out.println("Wprowadź nową książkę w formacie: Autor, Tytuł, ocena");
+                    // TODO zadanie dodatkowe sprawić by można było dodać książkę bez oceny
+
                     String[] chopedBook = scanner.nextLine().split(",");
-                    Book newBook = new Book(chopedBook[0], chopedBook[1], Double.parseDouble(chopedBook[2]));
+                    Book newBook;
+
+                    if (chopedBook[2] == null) {
+                        newBook = new Book(chopedBook[0], chopedBook[1]);
+                    } else {
+                        newBook = new Book(chopedBook[0], chopedBook[1], Double.parseDouble(chopedBook[2]));
+                    }
                     bookStore.addBook(newBook);
                     break;
-                case 14: System.exit(200);
+
+                case 3:
+
+                    System.out.println("Podaj nazwe ksiazki aby usunac z kolekcji");
+                    bookStore.showBookCollection();
+                    String bookToRemove = scanner.nextLine();
+                    bookStore.removeBookByTitle(bookToRemove);
+                    break;
+
+                case 4:
+                    bookStore.showBookCollection();
+                    System.out.println("Podaj Imie i nazwisko autora, ktorego chcesz usunac : ");
+                    String authorToRemover = scanner.nextLine();
+                    bookStore.removeAllBooksOfAuthor(authorToRemover);
+                    bookStore.showBookCollection();
+                    break;
+
+                    case
+                case 14:
+                    System.exit(200);
 
                 default:
                     System.out.println("Wybrana została niepoprawna opcja, spróbuj ponownie");

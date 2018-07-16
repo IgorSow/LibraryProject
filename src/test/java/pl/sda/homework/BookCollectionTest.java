@@ -23,4 +23,42 @@ class BookCollectionTest {
         //then
         assertEquals(7, bookStore.collectionSize());
     }
+
+    @Test
+    void removeBookByTitle () {
+
+        //given
+
+        BookStore bookStore = new BookStore();
+
+        assertEquals(6, bookStore.collectionSize());
+
+        //when
+
+        bookStore.removeBookByTitle("Kłamca");
+
+        //then
+        assertEquals(5, bookStore.collectionSize());
+
+    }
+    @Test
+    void removeAuthor () {
+
+        //given
+        BookStore bookStore = new BookStore();
+        System.out.println(bookStore.findAuthorInCollection("Brent Weeks"));
+
+        assertTrue(bookStore.findAuthorInCollection("Brent Weeks"));
+
+        //when
+        bookStore.removeAllBooksOfAuthor("Brent Weeks");
+
+        //then
+        assertFalse(bookStore.findAuthorInCollection("Brent Weeks"));
+    }
+
+
+
+
+
 }
