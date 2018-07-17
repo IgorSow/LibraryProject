@@ -42,7 +42,6 @@ public class BookStore {
     int collectionSize() { // metoda pomocna do junitów - nie potrzebna do działania programu
         return bookCollection.size();
     }
-//    System.out.println("Amount of books in book store: " + bookStorage.get(book));
 
     public void showBookCollection() {
 //        bookCollection.forEach(System.out::println); //->> java 8 lambda skrócona
@@ -119,7 +118,7 @@ public class BookStore {
         return tempCollection;
     }
 
-    public List<Book> returnBooksSortedByAuthor(){
+    public List<Book> returnBooksSortedByAuthor() {
 
         List<Book> tempCollection = new ArrayList<Book>();
 
@@ -139,21 +138,21 @@ public class BookStore {
 
     public List<Book> returnBooksSortedByRating() {
 
-     List<Book> tempCollection = new ArrayList<Book>();
+        List<Book> tempCollection = new ArrayList<Book>();
 
-     tempCollection.addAll(bookCollection);
+        tempCollection.addAll(bookCollection);
 
-     tempCollection.sort(new Comparator<Book>() {
-         @Override
-         public int compare(Book book1, Book book2) {
-             return -Double.compare(book1.getRating(),book2.getRating());
-         }
-     });
+        tempCollection.sort(new Comparator<Book>() {
+            @Override
+            public int compare(Book book1, Book book2) {
+                return -Double.compare(book1.getRating(), book2.getRating());
+            }
+        });
 //        System.out.println(tempCollection);
         return tempCollection;
     }
 
-    public List<Book> returnAuthorsCollectionsSortedByOption(String nameOfAutor, List<Book> orderOfList){
+    public List<Book> returnAuthorsCollectionsSortedByOption(String nameOfAutor, List<Book> orderOfList) {
         List<Book> tempCollections = new ArrayList<Book>();
         List<Book> ret = new ArrayList<Book>();
 
@@ -162,7 +161,7 @@ public class BookStore {
 
         for (int i = 0; i < tempCollections.size(); i++) {
 
-            if (tempCollections.get(i).getAuthor().equalsIgnoreCase(nameOfAutor)){
+            if (tempCollections.get(i).getAuthor().equalsIgnoreCase(nameOfAutor)) {
 
                 ret.add(tempCollections.get(i));
             }
@@ -174,30 +173,36 @@ public class BookStore {
     /// STORAGE
 
 
+    public void reviewOfStorage() {
 
-    public void reviewOfStorage(){
+        bookStorage.forEach((key, value) -> System.out.println(key + " \n szt. na magazynie: " + value + "\n"));
 
-        bookStorage.forEach((key, value) -> System.out.println(key + ":" + value));
 
     }
 
-    public void addBookToStorage( ) {
-         int amountOfbooks = 10;
-        Book bookToAdd = new Book("Brent Weeks", "Czarny Pryzmat", 9.1);
+    public void addBookToStorage(String nameOfAuthor, String title, int amountOfbooks) {
+        Book bookToAdd = new Book(nameOfAuthor, title);
+        boolean a = bookStorage.containsKey(bookToAdd);
 
+        System.out.println(a);
 
-
-        if (bookToAdd.equals(bookStorage.containsKey(bookToAdd))) {
-
-            bookStorage.merge(bookToAdd,amountOfbooks,Integer::sum);
+        if (bookStorage.containsKey(bookToAdd)) {
+            bookStorage.merge(bookToAdd, amountOfbooks, Integer::sum);
             System.out.println("Zostala zwiekszona ilosc o : " + amountOfbooks);
-        }else {
-            bookStorage.put(bookToAdd,amountOfbooks);
-            System.out.println("Niestety nie bylo ksiazki na magazynie ale dodano nowa");
+        } else {
+            bookStorage.put(bookToAdd, amountOfbooks);
+            System.out.println("Niestety nie bylo ksiazki na magazynie, ale dodano nowa ksiazke");
         }
 
 
+    }
 
+    public void returnSortedStorage(){
+        
+        Map<Book, Integer> temporatyStore= new TreeMap<>();
 
+        temporatyStore.putAll(bookStorage);
+
+        System.out.println(temporatyStore);
     }
 }

@@ -2,6 +2,8 @@ package pl.sda.homework;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -57,8 +59,37 @@ class BookCollectionTest {
         assertFalse(bookStore.findAuthorInCollection("Brent Weeks"));
     }
 
+@Test
+    void shouldReturnSortedCollectionByTitle() {
+    BookStore bookStore = new BookStore();
 
+    System.out.println(bookStore.returnBooksSortedByTitle());
+}
 
+@Test
+
+    void shouldReturnSortedCollectionByAuthor(){
+
+        BookStore bookStore = new BookStore();
+
+    System.out.println(bookStore.returnBooksSortedByAuthor());
+}
+
+@Test
+    void shouldReturnSortedCollectionByRating() {
+
+    BookStore bookStore = new BookStore();
+
+    System.out.println(bookStore.returnBooksSortedByRating());
+}
+
+@Test
+    void shouldReturnAuthorsCollectionsSortedByTitle() {
+    BookStore bookStore = new BookStore();
+
+    System.out.println(bookStore.returnAuthorsCollectionsSortedByOption
+            ("Brent Weeks", bookStore.returnBooksSortedByTitle()));
+};
 
 
 }

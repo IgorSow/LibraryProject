@@ -65,10 +65,42 @@ public class Main {
                     bookStore.showBookCollection();
                     break;
 
-                    case
+                case 5:
+                    System.out.println("Kolekcje książek posortowaną po tytule");
+                    bookStore.returnBooksSortedByTitle();
+                    break;
+
+                case 6:
+                    System.out.println("Kolekcje książek posortowaną po autorze");
+                    bookStore.returnBooksSortedByAuthor();
+                    break;
+
+                case 7:
+                    System.out.println("Wyświetl kolekcje książek posortowaną od najlepsze do najgorszej");
+                    bookStore.returnBooksSortedByRating();
+                    break;
+
+                case 8:
+                    bookStore.showBookCollection();
+                    System.out.println("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
+                    String authorToReviewByTitle = scanner.nextLine();
+                    System.out.println("Kolekcje książek podanego autora posortowane po tytule");
+                    System.out.println(bookStore.returnAuthorsCollectionsSortedByOption
+                            (authorToReviewByTitle , bookStore.returnBooksSortedByTitle()));
+                    break;
+
+                case 9:
+
+                    System.out.println("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
+                    String authorToReviewByRating = scanner.nextLine();
+                    System.out.println("Kolekcje książek podanego autora posortowane od najlepszej do najgorszej");
+                    System.out.println(bookStore.returnAuthorsCollectionsSortedByOption
+                            (authorToReviewByRating, bookStore.returnBooksSortedByRating()));
+                    break;
+
                 case 14:
                     System.exit(200);
-
+                    break;
                 default:
                     System.out.println("Wybrana została niepoprawna opcja, spróbuj ponownie");
             }

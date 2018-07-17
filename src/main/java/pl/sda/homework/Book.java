@@ -1,6 +1,6 @@
 package pl.sda.homework;
 
-public class Book {
+public class Book{
 
     private final String author;
     private final String title;
@@ -55,10 +55,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book : " +
-                "Author : " + author + '\n' +
+        return  "Author : " + author + '\n' +
                 "Title : " + title + '\n' +
                 "Average Rating : " + rating +
-                "\n ";
+                "";
     }
+
+//
 }
