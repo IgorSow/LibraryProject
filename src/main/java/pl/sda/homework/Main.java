@@ -98,6 +98,36 @@ public class Main {
                             (authorToReviewByRating, bookStore.returnBooksSortedByRating()));
                     break;
 
+                case 10:
+                    System.out.println("Podaj autora: ");
+                    String author = scanner.nextLine();
+
+                    System.out.println("Podaj tytul:  ");
+                    String title = scanner.nextLine();
+
+                    System.out.println("Podaj ilosc");
+                    int amountOfBooks = scanner.nextInt();
+
+                    bookStore.addBookToStorage(author,title,amountOfBooks);
+                    break;
+
+                case 11:
+                    System.out.println("Podaj autora: ");
+                    String author2 = scanner.nextLine();
+
+                    System.out.println("Podaj tytul:  ");
+                    String title2 = scanner.nextLine();
+
+                    System.out.println("Podaj ilosc");
+                    int amountOfBooks2 = scanner.nextInt();
+
+                    bookStore.sellBook(author2,title2,amountOfBooks2);
+                    break;
+
+                case 12:
+                    bookStore.returnSortedStorageInGrowing();
+                    break;
+
                 case 14:
                     System.exit(200);
                     break;

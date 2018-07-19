@@ -9,7 +9,7 @@ class BookStorageTest {
     @Test // option extra
     void returnReviewOfStorage(){
         BookStore bookStore = new BookStore();
-        bookStore.reviewOfStorage();
+        bookStore.showBookStore();
     }
 
     @Test // option 10 test 1
@@ -43,15 +43,30 @@ class BookStorageTest {
         assertEquals(7, bookStore.bookStorageSize());
     }
 
+    @Test // option 11
+    void schouldReturnBookToSell(){
+        //given
+        BookStore bookStore = new BookStore();
+        assertEquals(22, bookStore.returnAmountOfBooksInStore("Marcin Przybyłek", "Gamedec Zabaweczki"));
+
+        //then
+        bookStore.sellBook("Marcin Przybyłek", "Gamedec Zabaweczki",1);
+
+        //then
+        assertEquals(21, bookStore.returnAmountOfBooksInStore("Marcin Przybyłek", "Gamedec Zabaweczki"));
+
+
+    }
+
     @Test
-    void shouldReturnedAndSortedStorage(){
+    void shouldReturnedAndSortedInGrowing(){
         BookStore bookStore = new BookStore();
 
 //        bookStore.showBookCollection();
         System.out.println("//////////////////");
 
 
-        bookStore.returnSortedStorage();
+        bookStore.returnSortedStorageInGrowing();
 
     }
 
