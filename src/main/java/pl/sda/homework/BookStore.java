@@ -265,7 +265,7 @@ public class BookStore {
         Collections.sort(tempList, new Comparator<Map.Entry<Book, Integer>>() {
             @Override
             public int compare(Map.Entry<Book, Integer> o1, Map.Entry<Book, Integer> o2) {
-                return o1.getValue().compareTo(o2.getValue());
+                return -o1.getValue().compareTo(o2.getValue());
             }
         });
 
