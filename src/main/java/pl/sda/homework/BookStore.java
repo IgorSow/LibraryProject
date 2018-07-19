@@ -1,11 +1,15 @@
 package pl.sda.homework;
 
+import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+
 import java.util.*;
 
 public class BookStore {
 
     private final Set<Book> bookCollection;
     private final Map<Book, Integer> bookStorage; // Magazyn ->> klucz książka (equals autor+tytuł)
+    private double account = 0;
+
     // wartość - ilość sztuk w magazynie
 
     public BookStore() {
@@ -43,6 +47,10 @@ public class BookStore {
         return bookCollection.size();
     }
 
+    int bookStorageSize() {
+        return bookStorage.size();
+    }
+
     public void showBookCollection() {
 //        bookCollection.forEach(System.out::println); //->> java 8 lambda skrócona
 //        bookCollection.forEach(book -> System.out.println(book));// ->> java 8 lambda
@@ -76,29 +84,65 @@ public class BookStore {
     public void removeBookByTitle(String bookToRemove) {
         // usuwa ksiazke z kolekcji po nazwie :
 
-        for (Book book : bookCollection) {
+        Book findedElement = null;
 
+// wersja z iteratorem
+//        List<Book>  lb = new ArrayList<>();
+
+//        Iterator<Book> iterator = bookCollection.iterator();
+//        int i = 0;
+//        while (iterator.hasNext()){
+//
+//            System.out.println(i);
+//            Book next = iterator.next();
+//            System.out.println(next);
+//            i++;
+//
+//        }
+//
+//
+        for (Book book : bookCollection) {
             boolean compare = book.getTitle().equals(bookToRemove);
 
             if (compare == true) {
-                bookCollection.remove(book);
-                System.out.println("Zostala usunieta ksiazka : ");
-                System.out.println(book);
-                System.out.println(collectionSize());
+                findedElement = book;
+                break;
             }
         }
+
+        if (findedElement != null) {
+
+            bookCollection.remove(findedElement);
+            System.out.println("Zostala usunieta ksiazka : ");
+            System.out.println(findedElement);
+            System.out.println(collectionSize());
+        } else {
+            System.out.println("Nie Zostala usunieta ksiazka : ");
+
+        }
+
+
     }
 
     public void removeAllBooksOfAuthor(String nameOfAuthor) {
 
         int amountOfRemovedBooks = 0;
+        Book bookToRemove = null;
+
 
         for (Book book : bookCollection) {
 
             if (true == book.getAuthor().equals(nameOfAuthor)) {
-                bookCollection.remove(book);
+                bookToRemove = book;
+                amountOfRemovedBooks++;
             }
         }
+        bookCollection.remove(bookToRemove);
+
+        if (findAuthorInCollection(nameOfAuthor) == true) {
+            removeAllBooksOfAuthor(nameOfAuthor);
+        }
+        bookCollection.remove(bookToRemove);
         System.out.println("Usunieto : " + amountOfRemovedBooks + " ksiazek " + nameOfAuthor);
     }
 
@@ -132,6 +176,7 @@ public class BookStore {
                 return o1.getAuthor().compareTo(o2.getAuthor());
             }
         });
+
         System.out.println(tempCollection);
         return tempCollection;
     }
@@ -180,29 +225,60 @@ public class BookStore {
 
     }
 
-    public void addBookToStorage(String nameOfAuthor, String title, int amountOfbooks) {
+    public void addBookToStorage(String nameOfAuthor, String title, int amountOfBooks) {
         Book bookToAdd = new Book(nameOfAuthor, title);
-        boolean a = bookStorage.containsKey(bookToAdd);
 
-        System.out.println(a);
 
         if (bookStorage.containsKey(bookToAdd)) {
-            bookStorage.merge(bookToAdd, amountOfbooks, Integer::sum);
-            System.out.println("Zostala zwiekszona ilosc o : " + amountOfbooks);
+            bookStorage.merge(bookToAdd, amountOfBooks, Integer::sum);
+            System.out.println("Zostala zwiekszona ilosc o : " + amountOfBooks);
         } else {
-            bookStorage.put(bookToAdd, amountOfbooks);
-            System.out.println("Niestety nie bylo ksiazki na magazynie, ale dodano nowa ksiazke");
+            bookStorage.put(bookToAdd, amountOfBooks);
+            bookCollection.add(bookToAdd);
+            System.out.println("Niestety nie bylo ksiazki na magazynie," +
+                    " ale dodano nowa ksiazke do sprzedazy oraz kolekcji");
         }
 
 
     }
 
-    public void returnSortedStorage(){
-        
-        Map<Book, Integer> temporatyStore= new TreeMap<>();
+    public void sellBook(String nameOfAuthor, String title, int amountOfBooks) {
 
-        temporatyStore.putAll(bookStorage);
+        Book bookToSell = new Book(nameOfAuthor, title);
 
-        System.out.println(temporatyStore);
+        if (bookStorage.containsKey(bookToSell)) {
+            bookStorage.get(bookToSell);
+        }
+    }
+
+    public void returnSortedStorage() {
+
+        Map<Book, Integer> mapToSort = bookStorage;
+        // 1. Convert Map to List of Map
+
+        List<Map.Entry<Book, Integer>> tempList = new LinkedList<>(bookStorage.entrySet());
+
+
+        // 2. Sort list with Collections.sort(), provide a custom Comparator
+
+
+        Collections.sort(tempList, new Comparator<Map.Entry<Book, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Book, Integer> o1, Map.Entry<Book, Integer> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+        });
+
+
+        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
+        Map<Book, Integer> sortedMap = new LinkedHashMap<Book, Integer>();
+        for (Map.Entry<Book, Integer> entry : tempList) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+
+        }
+//        System.out.println(sortedMap);
+//
+//        System.out.println( " /////////////////////////////////////// ");
+        sortedMap.forEach((key, value) -> System.out.println(key + " \n szt. na magazynie: " + value + "\n"));
     }
 }

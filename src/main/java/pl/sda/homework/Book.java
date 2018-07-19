@@ -57,7 +57,7 @@ public class Book{
     public String toString() {
         return  "Author : " + author + '\n' +
                 "Title : " + title + '\n' +
-                "Average Rating : " + rating +
+                "Average Rating : " + rating + '\n' +
                 "";
     }
 
