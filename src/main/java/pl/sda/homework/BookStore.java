@@ -3,6 +3,7 @@ package pl.sda.homework;
 import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class BookStore {
 
@@ -278,7 +279,7 @@ public class BookStore {
         }
     }
 
-    public  Map<Book, Integer> returnSortedStorageInGrowing() {
+    public Map<Book, Integer> returnSortedStorageInGrowing() {
 
 
         // 1. Convert Map to List of Map
@@ -298,7 +299,9 @@ public class BookStore {
             sortedMap.put(entry.getKey(), (entry.getValue()));
 
         }
+
         sortedMap.forEach((key, value) -> System.out.println(key + " \n szt. na magazynie: " + value + "\n"));
+
         return sortedMap;
     }
 

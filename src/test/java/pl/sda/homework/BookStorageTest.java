@@ -27,7 +27,6 @@ class BookStorageTest {
         assertEquals(8,bookStore.bookStorageSize());
         }
 
-
     @Test // option 10 test 1
     void returnAddBookToStorageIfBookNotExistInStore() {
 
@@ -58,7 +57,7 @@ class BookStorageTest {
 
     }
 
-    @Test
+    @Test //option 12
     void shouldReturnedAndSortedInGrowing(){
         BookStore bookStore = new BookStore();
 

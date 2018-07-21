@@ -13,8 +13,7 @@ class BookCollectionTest {
     private final static String NOT_IMPORTANT_TITLE = "some title";
     private final static double NOT_IMPORTANT_RATING = 1.0;
 
-    @Test
-        //option 2
+    @Test //option 2
     void afterAddOneBookMyCollectionSizeShouldBeSeven() {
         //given
         BookStore bookStore = new BookStore();
@@ -25,8 +24,7 @@ class BookCollectionTest {
         assertEquals(8, bookStore.collectionSize());
     }
 
-    @Test
-        // option 3
+    @Test // option 3
     void removeBookByTitle() {
 
         //given
@@ -43,6 +41,7 @@ class BookCollectionTest {
         assertEquals(6, bookStore.collectionSize());
 
     }
+
     @Test //option 4
     void shouldReturnedAllBooksWithoutBooksOfAuthor() {
 
