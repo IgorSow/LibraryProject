@@ -23,42 +23,51 @@ public class MenuStore {
 
             int chosenOption = scanner.nextInt();
             scanner.nextLine();
-            switch (chosenOption) {
 
-                case 1:
-                    System.out.println("Podaj autora: ");
-                    String author = scanner.nextLine();
+            try {
+                switch (chosenOption) {
 
-                    System.out.println("Podaj tytul:  ");
-                    String title = scanner.nextLine();
+                    case 1:
+                        System.out.println("Podaj autora: ");
+                        String author = scanner.nextLine();
 
-                    System.out.println("Podaj ilosc");
-                    int amountOfBooks = scanner.nextInt();
+                        System.out.println("Podaj tytul:  ");
+                        String title = scanner.nextLine();
 
-                    bookStore.addBookToStorage(author, title, amountOfBooks);
-                    return;
+                        System.out.println("Podaj ilosc");
+                        int amountOfBooks = scanner.nextInt();
 
-                case 2:
-                    System.out.println("Podaj autora: ");
-                    String author2 = scanner.nextLine();
+                        bookStore.addBookToStorage(author, title, amountOfBooks);
+                        return;
 
-                    System.out.println("Podaj tytul:  ");
-                    String title2 = scanner.nextLine();
+                    case 2:
+                        System.out.println("Podaj autora: ");
+                        String author2 = scanner.nextLine();
 
-                    System.out.println("Podaj ilosc");
-                    int amountOfBooks2 = scanner.nextInt();
+                        System.out.println("Podaj tytul:  ");
+                        String title2 = scanner.nextLine();
 
-                    bookStore.sellBook(author2, title2, amountOfBooks2);
-                    break;
+                        System.out.println("Podaj ilosc");
+                        int amountOfBooks2 = scanner.nextInt();
 
-                case 3:
-                    bookStore.returnSortedStorageInGrowing();
-                    break;
+                        bookStore.sellBook(author2, title2, amountOfBooks2);
+                        break;
 
-                case 5:
-                    repeat = false;
-                    break;
+                    case 3:
+                        bookStore.returnSortedStorageInGrowing();
+                        break;
+
+                    case 5:
+                        repeat = false;
+                        break;
+                    default:
+                        System.out.println("W menu mozna wybierac tylko liczby od 1 do 5");
+                }
+            } catch (Exception e) {
+                System.out.println("W menu mozna wybierac tylko liczby od 1 do 5");
+                menuStore();
             }
+
         }
     }
 }

@@ -21,22 +21,23 @@ public class MenuPrimary {
 
             try {
                 int chosenOption = scanner.nextInt();
-            switch (chosenOption) {
-                case 1:
-                    menuCollection();
-                    break;
-                case 2:
-                    menuStore();
-                    break;
-                case 3:
-                    menuAddOrder();
-                    break;
-            }
-            }catch (Exception e){
+                switch (chosenOption) {
+                    case 1:
+                        menuCollection();
+                        break;
+                    case 2:
+                        menuStore();
+                        break;
+                    case 3:
+                        menuAddOrder();
+                        break;
+                    default:
+                        System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
+                }
+            } catch (Exception a) {
                 System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
-                break;
+              menuPrimary();
             }
-            continue;
         }
 
     }
