@@ -1,8 +1,7 @@
 package pl.sda.homework;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
+import pl.sda.homework.book.Book;
 
 import static org.junit.jupiter.api.Assertions.*;
 

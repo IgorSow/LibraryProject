@@ -1,4 +1,4 @@
-package pl.sda.homework;
+package pl.sda.homework.book;
 public class Book{
 
     private final String author;

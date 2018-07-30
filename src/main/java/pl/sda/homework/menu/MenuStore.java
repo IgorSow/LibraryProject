@@ -1,4 +1,6 @@
-package pl.sda.homework;
+package pl.sda.homework.menu;
+
+import pl.sda.homework.BookStore;
 
 import java.util.Scanner;
 
@@ -11,11 +13,11 @@ public class MenuStore {
 
         boolean repeat = true;
         while (repeat) {
-            System.out.println("10. Przyjmij partię książki na magazyn");
-            System.out.println("11. Sprzedaj książkę (zdejmij z magazynu)");
-            System.out.println("12. Wyświetl stan magazynowy posortowany po ilości książek (rosnąco)");
-            System.out.println("13. Wyświetl stan magazynowy książek, których jest mniej niż 10 posortowanych po ilości książek (rosnąco)");
-            System.out.println("14. Zakończ program");
+            System.out.println("1. Przyjmij partię książki na magazyn");
+            System.out.println("2. Sprzedaj książkę (zdejmij z magazynu)");
+            System.out.println("3. Wyświetl stan magazynowy posortowany po ilości książek (rosnąco)");
+            System.out.println("4. Wyświetl stan magazynowy książek, których jest mniej niż 10 posortowanych po ilości książek (rosnąco)");
+            System.out.println("5. Przejdz do menu głównego");
             System.out.println();
 
 
@@ -23,7 +25,7 @@ public class MenuStore {
             scanner.nextLine();
             switch (chosenOption) {
 
-                case 10:
+                case 1:
                     System.out.println("Podaj autora: ");
                     String author = scanner.nextLine();
 
@@ -36,7 +38,7 @@ public class MenuStore {
                     bookStore.addBookToStorage(author, title, amountOfBooks);
                     return;
 
-                case 11:
+                case 2:
                     System.out.println("Podaj autora: ");
                     String author2 = scanner.nextLine();
 
@@ -49,8 +51,12 @@ public class MenuStore {
                     bookStore.sellBook(author2, title2, amountOfBooks2);
                     break;
 
-                case 12:
+                case 3:
                     bookStore.returnSortedStorageInGrowing();
+                    break;
+
+                case 5:
+                    repeat = false;
                     break;
             }
         }

@@ -1,14 +1,19 @@
 package pl.sda.homework;
 
-import static pl.sda.homework.MenuStore.menuStore;
-import static pl.sda.homework.ManuCollection.menuCollection;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.Scanner;
+
+import static pl.sda.homework.menu.MenuPrimary.menuPrimary;
+
+
+@Slf4j
 public class Main {
     public static void main(String[] args) {
-        menuCollection();
-        menuStore();
 
+        log.info("PROGRAM WROTE BY IGOR SOWINSKI");
+        Scanner scanner = new Scanner(System.in);
+
+        menuPrimary();
     }
-
-
 }

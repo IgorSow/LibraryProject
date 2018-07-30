@@ -1,4 +1,7 @@
-package pl.sda.homework;
+package pl.sda.homework.menu;
+
+import pl.sda.homework.book.Book;
+import pl.sda.homework.BookStore;
 
 import java.util.Scanner;
 
@@ -20,7 +23,7 @@ public class ManuCollection {
             System.out.println("7. Wyświetl kolekcje książek posortowaną od najlepsze do najgorszej");
             System.out.println("8. Wyświet wszystkie kolekcje książek podanego autora posortowane po tytule");
             System.out.println("9. Wyświet wszystkie kolekcje książek podanego autora posortowane po ocenie");
-            System.out.println();
+            System.out.println("10. Powrót do menu głównego");
             System.out.println();
 
 
@@ -96,17 +99,12 @@ public class ManuCollection {
                             (authorToReviewByRating, bookStore.returnBooksSortedByRating()));
                     break;
 
-                case 14:
-                    System.exit(200);
+                case 10:
+                    repeat = false;
                     break;
                 default:
                     System.out.println("Wybrana została niepoprawna opcja, spróbuj ponownie");
             }
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
         }
     }
 
