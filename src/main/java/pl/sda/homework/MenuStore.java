@@ -18,6 +18,7 @@ public class MenuStore {
             System.out.println("14. Zakończ program");
             System.out.println();
 
+
             int chosenOption = scanner.nextInt();
             scanner.nextLine();
             switch (chosenOption) {

@@ -21,6 +21,9 @@ public class ManuCollection {
             System.out.println("8. Wyświet wszystkie kolekcje książek podanego autora posortowane po tytule");
             System.out.println("9. Wyświet wszystkie kolekcje książek podanego autora posortowane po ocenie");
             System.out.println();
+            System.out.println();
+
+
 
             int chosenOption = scanner.nextInt();
             scanner.nextLine();
