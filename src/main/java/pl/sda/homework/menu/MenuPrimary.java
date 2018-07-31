@@ -14,10 +14,10 @@ public class MenuPrimary {
 
         boolean repeat = true;
         while (repeat) {
-            System.out.println("Jestes w menu glownym");
+            System.out.println("Jestes w menu glównym");
             System.out.println("1. Przejdz do menu kolekcji");
-            System.out.println("2. Przejdz do menu sklepu");
-            System.out.println("3. Przejdz do menu zamówień");
+            System.out.println("2. Przejdz do menu magazynu");
+            System.out.println("3. Przejdz do menu zamówień/sklepu");
 
             try {
                 int chosenOption = scanner.nextInt();
