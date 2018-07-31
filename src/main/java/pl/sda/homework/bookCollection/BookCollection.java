@@ -11,9 +11,6 @@ public class BookCollection {
     public Set<Book> getBookCollection() {
         return bookCollection;
     }
-    public void setBookCollection(Set<Book> bookCollection) {
-        this.bookCollection = bookCollection;
-    }
 
     public BookCollection() {
 
@@ -33,6 +30,21 @@ public class BookCollection {
         bookCollection.add(book4);
         bookCollection.add(book5);
         bookCollection.add(book6);
+    }
+
+    public void setBookCollection(Set<Book> bookCollection) {
+        this.bookCollection = bookCollection;
+    }
+
+
+    public void addBook(Book book) {
+        //dodać książkę do kolekcji
+        bookCollection.add(book);
+//        bookStorage.put(book, 0);
+//        // TODO dla chętnych - jesli dodajemy do kolekcji książek nową pozycje
+//        // to w magazynie powinna pojawić się taka z ilością 0.
+
+        System.out.println("Dodano nową książkę do kolekcji: " + book);
     }
 
     public int collectionSize() { // metoda pomocna do junitów - nie potrzebna do działania programu

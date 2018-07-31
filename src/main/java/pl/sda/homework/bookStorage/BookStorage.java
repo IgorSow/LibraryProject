@@ -1,5 +1,6 @@
 package pl.sda.homework.bookStorage;
 
+import pl.sda.homework.account.Account;
 import pl.sda.homework.book.Book;
 
 
@@ -8,7 +9,7 @@ import java.util.*;
 
 public class BookStorage {
     private Map<Book, Integer> bookStorage; //Storage : Key - book , Integer - amount of books
-
+    private Account account;
 
     public BookStorage() {
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
@@ -20,7 +21,6 @@ public class BookStorage {
         Book book6 = new Book("Brent Weeks", "Droga Cienia", 9.8);
 
         bookStorage = new HashMap<>();
-
         bookStorage.put(book1, 7);
         bookStorage.put(book2, 3);
         bookStorage.put(book3, 11);
@@ -28,7 +28,6 @@ public class BookStorage {
         bookStorage.put(book5, 9);
         bookStorage.put(book6, 47);
         bookStorage.put(book7, 2);
-
 
     }
 
@@ -39,6 +38,10 @@ public class BookStorage {
         bookStorage.forEach((key, value) -> System.out.println(key + " \n szt. na magazynie: " + value + "\n"));
 
 
+    }
+
+    public int bookStorageSize() {
+        return bookStorage.size();
     }
 
     public void addBookToStorage(String nameOfAuthor, String title, int amountOfBooks) {
@@ -81,9 +84,9 @@ public class BookStorage {
 
             if (centuryAmountsBooks > 0) {
                 bookStorage.put(bookToSell, centuryAmountsBooks - amountOfBooks);
-                account += 15.50 * amountOfBooks;
+                account.addMoneyToAccount(15.50 * amountOfBooks);
 
-                System.out.println("KUPILES KSIAZKE : ");
+                System.out.println("KUPILES KSIAZKE : " + bookToSell);
             } else {
                 System.out.println(bookToSell);
                 System.out.println("Ksiazka zostala wyprzedana zapraszamy w krotce");

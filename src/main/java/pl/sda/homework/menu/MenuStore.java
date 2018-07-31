@@ -1,6 +1,7 @@
 package pl.sda.homework.menu;
 
-import pl.sda.homework.BookStore;
+
+import pl.sda.homework.bookStorage.BookStorage;
 
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class MenuStore {
 
     public static void menuStore() {
         Scanner scanner = new Scanner(System.in);
-        BookStore bookStore = new BookStore();
+        BookStorage bookStorage = new BookStorage();
 
         boolean repeat = true;
         while (repeat) {
@@ -37,7 +38,7 @@ public class MenuStore {
                         System.out.println("Podaj ilosc");
                         int amountOfBooks = scanner.nextInt();
 
-                        bookStore.addBookToStorage(author, title, amountOfBooks);
+                        bookStorage.addBookToStorage(author, title, amountOfBooks);
                         return;
 
                     case 2:
@@ -50,11 +51,11 @@ public class MenuStore {
                         System.out.println("Podaj ilosc");
                         int amountOfBooks2 = scanner.nextInt();
 
-                        bookStore.sellBook(author2, title2, amountOfBooks2);
+                        bookStorage.sellBook(author2, title2, amountOfBooks2);
                         break;
 
                     case 3:
-                        bookStore.returnSortedStorageInGrowing();
+                        bookStorage.returnSortedStorageInGrowing();
                         break;
 
                     case 5:
