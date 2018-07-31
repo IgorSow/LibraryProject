@@ -12,6 +12,8 @@ public class BookCollection {
         return bookCollection;
     }
 
+
+
     public BookCollection() {
 
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
@@ -197,19 +199,35 @@ public class BookCollection {
         return tempCollection;
     }
 
-    public List<Book> returnAuthorsCollectionsSortedByOption(String nameOfAutor, List<Book> orderOfList) {
-        List<Book> tempCollections = new ArrayList<Book>();
-        List<Book> ret = new ArrayList<Book>();
+    public List<Book> returnAuthorsCollectionsSortedByOption(String nameOfAuthor, List<Book> orderOfList) {
+        List<Book> tempCollections = new ArrayList<>();
+        List<Book> ret = new ArrayList<>();
 
         tempCollections.addAll(orderOfList);
 
 
         for (int i = 0; i < tempCollections.size(); i++) {
 
-            if (tempCollections.get(i).getAuthor().equalsIgnoreCase(nameOfAutor)) {
+            if (tempCollections.get(i).getAuthor().equalsIgnoreCase(nameOfAuthor)) {
 
                 ret.add(tempCollections.get(i));
             }
+        }
+        return ret;
+    }
+
+    public List<Book> returnBooksContainsTitle(String titleToFind){
+        List<Book> cloneOfOurCollection = new ArrayList<>();
+        List<Book> ret = new ArrayList<>();
+
+        cloneOfOurCollection.addAll(bookCollection);
+
+        for (int i =0 ; i < cloneOfOurCollection.size(); i++) {
+
+            if (cloneOfOurCollection.get(i).getTitle().contains(titleToFind)){
+                ret.add(cloneOfOurCollection.get(i));
+            }
+
         }
         return ret;
     }

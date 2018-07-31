@@ -24,7 +24,8 @@ public class ManuCollection {
             System.out.println("7. Wyświetl kolekcje książek posortowaną od najlepsze do najgorszej");
             System.out.println("8. Wyświet wszystkie kolekcje książek podanego autora posortowane po tytule");
             System.out.println("9. Wyświet wszystkie kolekcje książek podanego autora posortowane po ocenie");
-            System.out.println("10. Powrót do menu głównego");
+            System.out.println("10. Wyświetl wszystkie kolekcji książek - z filtrem po tytule");
+            System.out.println("11. Powrót do menu głównego");
             System.out.println();
 
 
@@ -101,6 +102,9 @@ public class ManuCollection {
                         break;
 
                     case 10:
+                        System.out.println("Opcja w przygotowaniu");
+
+                    case 11:
                         repeat = false;
                         break;
                     default:

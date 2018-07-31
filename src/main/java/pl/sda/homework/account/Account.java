@@ -1,6 +1,8 @@
 package pl.sda.homework.account;
 
-public class Account {
+import pl.sda.homework.bookStorage.BookStorage;
+
+public class Account extends BookStorage {
     private double account;
 
     public Account() {
@@ -14,4 +16,5 @@ public class Account {
     public void addMoneyToAccount(double value) {
         this.account += value;
     }
+
 }

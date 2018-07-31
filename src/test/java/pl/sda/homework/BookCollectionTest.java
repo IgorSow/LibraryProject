@@ -116,7 +116,7 @@ class BookCollectionTest {
     }
 
     @Test  //option 9
-    void houldReturnAuthorsCollectionsSortedByRating() {
+    void shouldReturnAuthorsCollectionsSortedByRating() {
         //given
         BookCollection bookCollection = new BookCollection();
 
@@ -128,6 +128,19 @@ class BookCollectionTest {
         System.out.println(bookCollection.returnAuthorsCollectionsSortedByOption
                 ("Brent Weeks", bookCollection.returnBooksSortedByRating()));
 
+    }
+
+    @Test //option 10
+    void shouldReturnBooksContainsTitle(){
+        //given
+        BookCollection bookCollection = new BookCollection();
+
+        //then
+        bookCollection.returnBooksContainsTitle("Pan");
+
+        //taken
+
+        System.out.println(bookCollection.returnBooksContainsTitle("Pan"));
     }
 
 }
