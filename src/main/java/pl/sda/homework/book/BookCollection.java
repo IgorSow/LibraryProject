@@ -10,6 +10,8 @@ public class BookCollection {
 
     public BookCollection() {
 
+        //todo : TEGO CHCE SIE POZBYC ZEBY BYLO W SHOPMANAGER
+
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
         Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
         Book book2 = new Book("Jarosław Grzędowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);

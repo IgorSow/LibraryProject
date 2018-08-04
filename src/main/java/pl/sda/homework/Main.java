@@ -8,6 +8,7 @@ import static pl.sda.homework.menu.MenuPrimary.menuPrimary;
 
 
 @Slf4j
+
 public class Main {
     public static void main(String[] args) {
 
