@@ -1,8 +1,7 @@
 package pl.sda.homework.account;
 
-import pl.sda.homework.bookStorage.BookStorage;
 
-public class Account extends BookStorage {
+public class Account {
     private double account;
 
     public Account() {

@@ -1,18 +1,12 @@
-package pl.sda.homework.bookCollection;
+package pl.sda.homework.book;
 
-import pl.sda.homework.book.Book;
+
 
 import java.util.*;
 
 public class BookCollection {
 
     private Set<Book> bookCollection;
-
-    public Set<Book> getBookCollection() {
-        return bookCollection;
-    }
-
-
 
     public BookCollection() {
 
@@ -32,6 +26,9 @@ public class BookCollection {
         bookCollection.add(book4);
         bookCollection.add(book5);
         bookCollection.add(book6);
+    }
+    public Set<Book> getBookCollection() {
+        return bookCollection;
     }
 
     public void setBookCollection(Set<Book> bookCollection) {

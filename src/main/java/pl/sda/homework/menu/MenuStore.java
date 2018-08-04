@@ -1,7 +1,7 @@
 package pl.sda.homework.menu;
 
 
-import pl.sda.homework.bookStorage.BookStorage;
+import pl.sda.homework.book.BookStorage;
 
 import java.util.Scanner;
 

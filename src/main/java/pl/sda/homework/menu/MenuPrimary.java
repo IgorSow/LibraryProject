@@ -19,26 +19,30 @@ public class MenuPrimary {
             System.out.println("2. Przejdz do menu magazynu");
             System.out.println("3. Przejdz do menu zamówień/sklepu");
 
+            int chosenOption = 0;
             try {
-                int chosenOption = scanner.nextInt();
-                switch (chosenOption) {
-                    case 1:
-                        menuCollection();
-                        break;
-                    case 2:
-                        menuStore();
-                        break;
-                    case 3:
-                        menuAddOrder();
-                        break;
-                    default:
-                        System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
-                }
+                chosenOption = scanner.nextInt();
             } catch (Exception a) {
                 System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
-              menuPrimary();
+                scanner.next();
             }
-        }
 
+            switch (chosenOption) {
+                case 1:
+                    menuCollection();
+                    break;
+                case 2:
+                    menuStore();
+                    break;
+                case 3:
+                    menuAddOrder();
+                    break;
+                default:
+                    System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
+            }
+
+        }
     }
+
 }
+

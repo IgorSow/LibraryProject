@@ -1,7 +1,6 @@
-package pl.sda.homework.bookStorage;
+package pl.sda.homework.book;
 
 import pl.sda.homework.account.Account;
-import pl.sda.homework.book.Book;
 
 
 import java.util.*;

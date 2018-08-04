@@ -2,7 +2,7 @@ package pl.sda.homework;
 
 import org.junit.jupiter.api.Test;
 import pl.sda.homework.book.Book;
-import pl.sda.homework.bookCollection.BookCollection;
+import pl.sda.homework.book.BookCollection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
