@@ -4,13 +4,20 @@ import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookCollection;
 import pl.sda.homework.book.BookStorage;
 
-
 public class ShopManager {
 
-    public BookCollection bookCollection = new BookCollection();
-    public BookStorage bookStorage = new BookStorage();
+    private BookCollection bookCollection;
+    private BookStorage bookStorage;
 
     public ShopManager() {
+        this.bookCollection = new BookCollection();
+        this.bookStorage = new BookStorage();
+
+//TODO Chce tutaj stworzyc obiekt bookCollection i bookStorage tutaj nimi zarzadzac (
+// w sensie tutaj dodawac ksiazki do kolekcji i do magazynu, ale z tak duzywac metod do nich
+        // czyli usunac w konstruktorach domyslnych dodawanie ksiazek w kolecji i magazynie
+
+
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
         Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
         Book book2 = new Book("Jarosław Grzędowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);
@@ -20,23 +27,13 @@ public class ShopManager {
         Book book6 = new Book("Brent Weeks", "Droga Cienia", 9.8);
 
 
-
-        this.bookCollection.addBook(book1);
-        this.bookCollection.addBook(book2);
-        this.bookCollection.addBook(book3);
-        this.bookCollection.addBook(book4);
-        this.bookCollection.addBook(book5);
-        this.bookCollection.addBook(book6);
-        this.bookCollection.addBook(book7);
-
-        this.bookStorage.addBookToStorage(book1.getAuthor(),book1.getTitle(), 7);
-        this.bookStorage.addBookToStorage(book2.getAuthor(),book1.getTitle(), 3);
-        this.bookStorage.addBookToStorage(book3.getAuthor(),book1.getTitle(), 11);
-        this.bookStorage.addBookToStorage(book4.getAuthor(),book1.getTitle(), 22);
-        this.bookStorage.addBookToStorage(book5.getAuthor(),book1.getTitle(), 9);
-        this.bookStorage.addBookToStorage(book6.getAuthor(),book1.getTitle(), 47);
-        this.bookStorage.addBookToStorage(book7.getAuthor(),book1.getTitle(), 2);
-
+        bookCollection.addBook(book7);
+        bookCollection.addBook(book1);
+        bookCollection.addBook(book2);
+        bookCollection.addBook(book3);
+        bookCollection.addBook(book4);
+        bookCollection.addBook(book5);
+        bookCollection.addBook(book6);
     }
 
     public BookCollection getBookCollection() {
@@ -54,5 +51,4 @@ public class ShopManager {
     public void setBookStorage(BookStorage bookStorage) {
         this.bookStorage = bookStorage;
     }
-
 }

@@ -1,34 +1,38 @@
 package pl.sda.homework.book;
 
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 
 public class BookCollection {
 
     private Set<Book> bookCollection;
 
     public BookCollection() {
-
-        //todo : TEGO CHCE SIE POZBYC ZEBY BYLO W SHOPMANAGER
-
-        Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
-        Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
-        Book book2 = new Book("Jarosław Grzędowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);
-        Book book3 = new Book("Andrzej Sapkowski", "Pani Jeziorna", 1.0);
-        Book book4 = new Book("Marcin Przybyłek", "Gamedec Zabaweczki", 7.1);
-        Book book5 = new Book("Brent Weeks", "Czarny Pryzmat", 9.1);
-        Book book6 = new Book("Brent Weeks", "Droga Cienia", 9.8);
-
-        bookCollection = new HashSet<>();
-        bookCollection.add(book7);
-        bookCollection.add(book1);
-        bookCollection.add(book2);
-        bookCollection.add(book3);
-        bookCollection.add(book4);
-        bookCollection.add(book5);
-        bookCollection.add(book6);
+//
+//        //todo : TEGO CHCE SIE POZBYC ZEBY BYLO W SHOPMANAGER
+//
+//        Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
+//        Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
+//        Book book2 = new Book("Jarosław Grzędowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);
+//        Book book3 = new Book("Andrzej Sapkowski", "Pani Jeziorna", 1.0);
+//        Book book4 = new Book("Marcin Przybyłek", "Gamedec Zabaweczki", 7.1);
+//        Book book5 = new Book("Brent Weeks", "Czarny Pryzmat", 9.1);
+//        Book book6 = new Book("Brent Weeks", "Droga Cienia", 9.8);
+//
+//        bookCollection = new HashSet<>();
+//        bookCollection.add(book7);
+//        bookCollection.add(book1);
+//        bookCollection.add(book2);
+//        bookCollection.add(book3);
+//        bookCollection.add(book4);
+//        bookCollection.add(book5);
+//        bookCollection.add(book6);
     }
+
+
     public Set<Book> getBookCollection() {
         return bookCollection;
     }
@@ -61,15 +65,6 @@ public class BookCollection {
         }
     }
 
-    public void addBookToCollection(Book book) {
-        //dodać książkę do kolekcji
-        bookCollection.add(book);
-//        bookStorage.put(book, 0);
-        // TODO dla chętnych - jesli dodajemy do kolekcji książek nową pozycje
-        // to w magazynie powinna pojawić się taka z ilością 0.
-
-        System.out.println("Dodano nową książkę do kolekcji: " + book);
-    }
 
     public boolean findAuthorInCollection(String nameOfAuthor) { // metoda na potrzeby testow
 
