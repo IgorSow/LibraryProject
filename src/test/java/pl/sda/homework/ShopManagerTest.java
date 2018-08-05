@@ -10,7 +10,7 @@ public class ShopManagerTest {
 
         //given
 
-        ShopManager shopManager = new ShopManager();
+        ShopManager2 shopManager = new ShopManager2();
 
 
        shopManager.getBookCollection().showBookCollection();

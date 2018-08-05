@@ -4,12 +4,12 @@ import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookCollection;
 import pl.sda.homework.book.BookStorage;
 
-public class ShopManager {
+public class ShopManager2 {
 
     private BookCollection bookCollection;
     private BookStorage bookStorage;
 
-    public ShopManager() {
+    public ShopManager2() {
         this.bookCollection = new BookCollection();
         this.bookStorage = new BookStorage();
 
