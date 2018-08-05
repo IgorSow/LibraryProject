@@ -6,32 +6,11 @@ import java.util.*;
 
 
 public class BookStorage {
-    private Map<Book, Integer> bookStorage; //Storage : Key - book , Integer - amount of books
+    private Map<Book, Integer> bookStorage = new HashMap<>(); //Storage : Key - book , Integer - amount of books
     private Account account;
 
     public BookStorage() {
-//
-//        //todo : TEGO CHCE SIE POZBYC ZEBY BYLO W SHOPMANAGER
-//
-//        Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
-//        Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
-//        Book book2 = new Book("Jarosław Grzędowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);
-//        Book book3 = new Book("Andrzej Sapkowski", "Pani Jeziorna", 1.0);
-//        Book book4 = new Book("Marcin Przybyłek", "Gamedec Zabaweczki", 7.1);
-//        Book book5 = new Book("Brent Weeks", "Czarny Pryzmat", 9.1);
-//        Book book6 = new Book("Brent Weeks", "Droga Cienia", 9.8);
-//
-//        bookStorage = new HashMap<>();
-//        bookStorage.put(book1, 7);
-//        bookStorage.put(book2, 3);
-//        bookStorage.put(book3, 11);
-//        bookStorage.put(book4, 22);
-//        bookStorage.put(book5, 9);
-//        bookStorage.put(book6, 47);
-//        bookStorage.put(book7, 2);
-
     }
-
 
 
     public void showBookStore() {
