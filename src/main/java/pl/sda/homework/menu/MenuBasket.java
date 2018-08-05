@@ -1,14 +1,17 @@
 package pl.sda.homework.menu;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Scanner;
 
-public class MenuAddOrder {
+@Slf4j
+public class MenuBasket {
 
-    public static void menuAddOrder() {
+    public static void menuBasket() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Jestes w menu zamówień");
-        System.out.println("1. Powrot do menu głównego");
+        log.info("Jestes w menu zamówień");
+        log.info("1. Powrot do menu głównego");
 
         boolean repeat = true;
         while (repeat) {

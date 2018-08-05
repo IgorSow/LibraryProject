@@ -5,7 +5,7 @@ import pl.sda.homework.book.BookStorage;
 
 import java.util.Scanner;
 
-public class MenuStore {
+public class MenuStorage {
 
 
     public static void menuStore() {

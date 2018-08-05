@@ -3,8 +3,8 @@ package pl.sda.homework.menu;
 import java.util.Scanner;
 
 import static pl.sda.homework.menu.ManuCollection.menuCollection;
-import static pl.sda.homework.menu.MenuAddOrder.menuAddOrder;
-import static pl.sda.homework.menu.MenuStore.menuStore;
+import static pl.sda.homework.menu.MenuBasket.menuBasket;
+import static pl.sda.homework.menu.MenuStorage.menuStore;
 
 public class MenuPrimary {
 
@@ -35,7 +35,7 @@ public class MenuPrimary {
                     menuStore();
                     break;
                 case 3:
-                    menuAddOrder();
+                    menuBasket();
                     break;
                 default:
                     System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
