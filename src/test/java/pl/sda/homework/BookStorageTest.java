@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookStorageTest {
 
     @Test // option extra
-    void returnReviewOfStorage(){
+    void shouldReturnReviewOfStorage(){
 
         BookStorage bookStorage = new BookStorage();
         bookStorage.showBookStore();
     }
 
     @Test // option 10 test 1
-    void returnAddBookToStorageIfBookExistInStore(){
+    void shouldReturnAddBookToStorageIfBookExistInStore(){
 
         //given
         BookStorage bookStorage = new BookStorage();
@@ -30,7 +30,7 @@ class BookStorageTest {
         }
 
     @Test // option 10 test 1
-    void returnAddBookToStorageIfBookNotExistInStore() {
+    void shouldReturnAddBookToStorageIfBookNotExistInStore() {
 
         //given
         BookStorage bookStorage = new BookStorage();
@@ -45,7 +45,7 @@ class BookStorageTest {
     }
 
     @Test // option 11
-    void schouldReturnBookToSell(){
+    void shouldReturnBookToSell(){
         //given
         BookStorage bookStorage = new BookStorage();
         assertEquals(22, bookStorage.returnAmountOfBooksInStore("Marcin Przybyłek", "Gamedec Zabaweczki"));

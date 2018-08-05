@@ -1,22 +1,22 @@
 package pl.sda.homework;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ShopManagerTest {
 
 
     @Test // option 3
-    void quick() {
+    void shouldCheckExistingBookCollectionAndBookStored() {
 
         //given
 
-        ShopManager2 shopManager = new ShopManager2();
+        ShopManager shopManager = new ShopManager();
 
+        //then
 
-       shopManager.getBookCollection().showBookCollection();
-//        shopManager.bookStorage.showBookStore();
-
-        //todo Bład konstruktora w bookCollection i bookStorage
+        assertNotNull(shopManager.getBookStorage());
+        assertNotNull(shopManager.getBookCollection());
 
 
 

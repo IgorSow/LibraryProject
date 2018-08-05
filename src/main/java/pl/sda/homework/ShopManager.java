@@ -4,19 +4,14 @@ import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookCollection;
 import pl.sda.homework.book.BookStorage;
 
-public class ShopManager2 {
+public class ShopManager {
 
     private BookCollection bookCollection;
     private BookStorage bookStorage;
 
-    public ShopManager2() {
+    public ShopManager() {
         this.bookCollection = new BookCollection();
         this.bookStorage = new BookStorage();
-
-//TODO Chce tutaj stworzyc obiekt bookCollection i bookStorage tutaj nimi zarzadzac (
-// w sensie tutaj dodawac ksiazki do kolekcji i do magazynu, ale z tak duzywac metod do nich
-        // czyli usunac w konstruktorach domyslnych dodawanie ksiazek w kolecji i magazynie
-
 
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
         Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
@@ -34,6 +29,14 @@ public class ShopManager2 {
         bookCollection.addBook(book4);
         bookCollection.addBook(book5);
         bookCollection.addBook(book6);
+
+        bookStorage.addBook(book1, 7);
+        bookStorage.addBook(book2,1);
+        bookStorage.addBook(book3, 11);
+        bookStorage.addBook(book4, 22);
+        bookStorage.addBook(book5, 9);
+        bookStorage.addBook(book6, 47);
+        bookStorage.addBook(book7, 22);
     }
 
     public BookCollection getBookCollection() {
