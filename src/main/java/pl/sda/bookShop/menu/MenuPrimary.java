@@ -1,13 +1,13 @@
-package pl.sda.homework.menu;
+package pl.sda.bookShop.menu;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.homework.ShopManager;
+import pl.sda.bookShop.ShopManager;
 
 import java.util.Scanner;
 
-import static pl.sda.homework.menu.ManuCollection.menuCollection;
-import static pl.sda.homework.menu.MenuOrder.MenuOrder;
-import static pl.sda.homework.menu.MenuStorage.menuStore;
+import static pl.sda.bookShop.menu.ManuCollection.menuCollection;
+import static pl.sda.bookShop.menu.MenuOrder.MenuOrder;
+import static pl.sda.bookShop.menu.MenuStorage.menuStore;
 
 @Slf4j
 public class MenuPrimary {

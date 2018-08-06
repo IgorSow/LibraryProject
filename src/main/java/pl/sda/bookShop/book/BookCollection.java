@@ -1,4 +1,4 @@
-package pl.sda.homework.book;
+package pl.sda.bookShop.book;
 
 
 import java.util.*;

@@ -1,8 +1,7 @@
-package pl.sda.homework;
+package pl.sda.bookShop;
 
 import lombok.extern.slf4j.Slf4j;
-
-import static pl.sda.homework.menu.MenuPrimary.menuPrimary;
+import pl.sda.bookShop.menu.MenuPrimary;
 
 
 @Slf4j
@@ -13,7 +12,7 @@ public class Main {
         log.info("PROGRAM WROTE BY IGOR SOWINSKI");
 
 
-        menuPrimary();
+        MenuPrimary.menuPrimary();
     }
 
 

@@ -1,9 +1,9 @@
-package pl.sda.homework;
+package pl.sda.bookShop;
 
-import pl.sda.homework.account.Account;
-import pl.sda.homework.book.Book;
-import pl.sda.homework.book.BookCollection;
-import pl.sda.homework.book.BookStorage;
+import pl.sda.bookShop.book.Book;
+import pl.sda.bookShop.book.BookCollection;
+import pl.sda.bookShop.book.BookStorage;
+import pl.sda.bookShop.account.Account;
 
 import java.util.List;
 
@@ -44,26 +44,26 @@ public class ShopManager {
         bookStorage.addBook(book7, 22);
     }
 
-    public BookCollection getBookCollection() {
-        return bookCollection;
-    }
+//    public BookCollection getBookCollection() {
+//        return bookCollection;
+//    }
+//
+//    public void setBookCollection(BookCollection bookCollection) {
+//        this.bookCollection = bookCollection;
+//    }
+//
+//    public BookStorage getBookStorage() {
+//        return bookStorage;
+//    }
+//
+//    public void setBookStorage(BookStorage bookStorage) {
+//        this.bookStorage = bookStorage;
+//    }
 
-    public void setBookCollection(BookCollection bookCollection) {
-        this.bookCollection = bookCollection;
-    }
 
-    public BookStorage getBookStorage() {
-        return bookStorage;
-    }
-
-    public void setBookStorage(BookStorage bookStorage) {
-        this.bookStorage = bookStorage;
-    }
-
-
-
-// import method from Collection
-
+/*
+/ import method from Collection
+*/
     public void addBookToCollection(Book newBook) {
         bookCollection.addBook(newBook);
         bookStorage.addBook(newBook,0);

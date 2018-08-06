@@ -1,7 +1,7 @@
-package pl.sda.homework;
+package pl.sda.bookShop;
 
 import org.junit.jupiter.api.Test;
-import pl.sda.homework.book.BookStorage;
+import pl.sda.bookShop.book.BookStorage;
 
 import static org.junit.jupiter.api.Assertions.*;
 

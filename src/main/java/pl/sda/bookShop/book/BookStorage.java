@@ -1,7 +1,6 @@
-package pl.sda.homework.book;
+package pl.sda.bookShop.book;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.homework.account.Account;
 
 import java.util.*;
 
@@ -63,6 +62,27 @@ public class BookStorage {
         }
         return 0;
     }
+
+
+    public void removeBook(Book bookToRemove, int amountOfBooksToRemove) {
+        int centuryAmountsBooks = bookStorage.get(bookToRemove);
+
+        bookStorage.put(bookToRemove, centuryAmountsBooks - amountOfBooksToRemove);
+    }
+
+
+    /*
+    if you want to remove more than one books. List have to have duplicates of books at list.
+     */
+    public void removeListOfBooks(List<Book> listOfBooksToRemove) {
+
+        for (int i = 0; i < listOfBooksToRemove.size(); i++) {
+            if (bookStorage.containsKey(listOfBooksToRemove.get(i))) {
+                removeBook(listOfBooksToRemove.get(i), 1);
+            }
+        }
+    }
+
 
     public boolean sellBook(String nameOfAuthor, String title, int amountOfBooks) {
 

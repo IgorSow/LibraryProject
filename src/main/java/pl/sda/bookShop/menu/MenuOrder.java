@@ -1,7 +1,7 @@
-package pl.sda.homework.menu;
+package pl.sda.bookShop.menu;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.homework.ShopManager;
+import pl.sda.bookShop.ShopManager;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -34,6 +34,9 @@ public class MenuOrder {
             switch (chosenOption) {
                 case 1:
                     shopManager.showBookStorage();
+
+                case 2:
+                    shopManager.ge
 
                 case 5:
                     repeat = false;
