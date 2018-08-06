@@ -1,15 +1,19 @@
 package pl.sda.homework;
 
+import pl.sda.homework.account.Account;
 import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookCollection;
 import pl.sda.homework.book.BookStorage;
+
+import java.util.List;
 
 public class ShopManager {
 
     private BookCollection bookCollection;
     private BookStorage bookStorage;
+    private Account account;
 
-    public ShopManager() {
+    public  ShopManager() {
         this.bookCollection = new BookCollection();
         this.bookStorage = new BookStorage();
 
@@ -54,4 +58,59 @@ public class ShopManager {
     public void setBookStorage(BookStorage bookStorage) {
         this.bookStorage = bookStorage;
     }
+
+
+
+// import method from Collection
+
+    public void addBookToCollection(Book newBook) {
+        bookCollection.addBook(newBook);
+        bookStorage.addBook(newBook,0);
+    }
+
+    public void showBookCollection() {
+        bookCollection.showBookCollection();
+    }
+
+    public void removeBookByTitle(String bookToRemove) {
+        bookCollection.removeBookByTitle(bookToRemove);
+    }
+
+    public void removeAllBooksOfAuthor(String authorToRemover) {
+        bookCollection.removeAllBooksOfAuthor(authorToRemover);
+    }
+
+    public List<Book> returnBooksSortedByTitle() {
+        return bookCollection.returnBooksSortedByTitle();
+    }
+
+    public List<Book> returnBooksSortedByAuthor() {
+        return bookCollection.returnBooksSortedByAuthor();
+    }
+
+    public List<Book> returnBooksSortedByRating() {
+        return bookCollection.returnBooksSortedByRating();
+    }
+
+    public List<Book> returnAuthorsCollectionsSortedByOption(String nameOfAuthor, List<Book> orderOfList) {
+       return bookCollection.returnAuthorsCollectionsSortedByOption(nameOfAuthor,orderOfList);
+    }
+
+
+    //import method from storage
+    public void addBookToStorage(String author, String title, int amountOfBooks) {
+        bookStorage.addBookToStorage(author,title,amountOfBooks);
+    }
+
+    public void sellBook(String nameOfAuthor, String title2, int amountOfBooks2) {
+        if (bookStorage.sellBook(nameOfAuthor,title2,amountOfBooks2) == true){
+            account.addMoneyToAccount(14.55);
+        }
+    }
+
+    public void returnSortedStorageInGrowing() {
+        bookStorage.returnSortedStorageInGrowing();
+    }
+
+
 }

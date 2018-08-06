@@ -2,8 +2,6 @@ package pl.sda.homework;
 
 import lombok.extern.slf4j.Slf4j;
 
-
-
 import static pl.sda.homework.menu.MenuPrimary.menuPrimary;
 
 
@@ -17,4 +15,7 @@ public class Main {
 
         menuPrimary();
     }
+
+
+
 }

@@ -1,8 +1,9 @@
 package pl.sda.homework.menu;
 
 import lombok.extern.slf4j.Slf4j;
+import pl.sda.homework.Main;
+import pl.sda.homework.ShopManager;
 import pl.sda.homework.book.Book;
-
 import pl.sda.homework.book.BookCollection;
 
 import java.util.InputMismatchException;
@@ -11,9 +12,9 @@ import java.util.Scanner;
 @Slf4j
 public class ManuCollection {
 
-    public static void menuCollection() {
+    public static void menuCollection(ShopManager shopManager ) {
         Scanner scanner = new Scanner(System.in);
-        BookCollection bookCollection = new BookCollection();
+
 
         boolean repeat = true;
         while (repeat) {
@@ -43,7 +44,7 @@ public class ManuCollection {
             switch (chosenOption) {
 
                 case 1:
-                    bookCollection.showBookCollection();
+                    shopManager.getBookCollection().showBookCollection();
                     break;
 
                 case 2:
@@ -58,47 +59,47 @@ public class ManuCollection {
                     } else {
                         newBook = new Book(chopedBook[0], chopedBook[1], Double.parseDouble(chopedBook[2]));
                     }
-                    bookCollection.addBook(newBook);
+                    shopManager.addBookToCollection(newBook);
                     break;
 
                 case 3:
 
                     log.info("Podaj nazwe ksiazki aby usunac z kolekcji");
-                    bookCollection.showBookCollection();
+                    shopManager.showBookCollection();
                     String bookToRemove = scanner.nextLine();
-                    bookCollection.removeBookByTitle(bookToRemove);
+                    shopManager.removeBookByTitle(bookToRemove);
                     break;
 
                 case 4:
-                    bookCollection.showBookCollection();
+                    shopManager.showBookCollection();
                     log.info("Podaj Imie i nazwisko autora, ktorego chcesz usunac : ");
                     String authorToRemover = scanner.nextLine();
-                    bookCollection.removeAllBooksOfAuthor(authorToRemover);
-                    bookCollection.showBookCollection();
+                    shopManager.removeAllBooksOfAuthor(authorToRemover);
+                    shopManager.showBookCollection();
                     break;
 
                 case 5:
                     log.info("Kolekcje książek posortowaną po tytule");
-                    bookCollection.returnBooksSortedByTitle();
+                    shopManager.returnBooksSortedByTitle();
                     break;
 
                 case 6:
                     log.info("Kolekcje książek posortowaną po autorze");
-                    bookCollection.returnBooksSortedByAuthor();
+                    shopManager.returnBooksSortedByAuthor();
                     break;
 
                 case 7:
                     log.info("Wyświetl kolekcje książek posortowaną od najlepsze do najgorszej");
-                    bookCollection.returnBooksSortedByRating();
+                    shopManager.returnBooksSortedByRating();
                     break;
 
                 case 8:
-                    bookCollection.showBookCollection();
+                    shopManager.showBookCollection();
                     log.info("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
                     String authorToReviewByTitle = scanner.nextLine();
                     log.info("Kolekcje książek podanego autora posortowane po tytule");
-                    System.out.println(bookCollection.returnAuthorsCollectionsSortedByOption
-                            (authorToReviewByTitle, bookCollection.returnBooksSortedByTitle()));
+                    System.out.println(shopManager.returnAuthorsCollectionsSortedByOption
+                            (authorToReviewByTitle, shopManager.returnBooksSortedByTitle()));
                     break;
 
                 case 9:
@@ -106,8 +107,8 @@ public class ManuCollection {
                     System.out.println("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
                     String authorToReviewByRating = scanner.nextLine();
                     System.out.println("Kolekcje książek podanego autora posortowane od najlepszej do najgorszej");
-                    System.out.println(bookCollection.returnAuthorsCollectionsSortedByOption
-                            (authorToReviewByRating, bookCollection.returnBooksSortedByRating()));
+                    System.out.println(shopManager.returnAuthorsCollectionsSortedByOption
+                            (authorToReviewByRating, shopManager.returnBooksSortedByRating()));
                     break;
 
                 case 10:
@@ -119,8 +120,6 @@ public class ManuCollection {
                 default:
                     System.out.println("W menu mozna wybierac tylko liczby od 1 do 10");
             }
-
-
         }
 
     }

@@ -4,18 +4,21 @@ public class Book{
     private final String author;
     private final String title;
     private double rating;
+    private double price;
 
 
     public Book(String author, String title) {
         this.author = author;
         this.title = title;
         this.rating = 0;
+        this.price = 14.99;
     }
 
     public Book(String author, String title, double rating) {
         this.author = author;
         this.title = title;
         this.rating = rating;
+        this.price = 14.99;
     }
 
     public String getAuthor() {
@@ -30,8 +33,16 @@ public class Book{
         return rating;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
@@ -57,6 +68,7 @@ public class Book{
         return  "Author : " + author + '\n' +
                 "Title : " + title + '\n' +
                 "Average Rating : " + rating + '\n' +
+                "Price book: " + price + '\n' +
                 "";
     }
 

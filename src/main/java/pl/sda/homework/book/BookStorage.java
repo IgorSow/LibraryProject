@@ -1,10 +1,11 @@
 package pl.sda.homework.book;
 
+import lombok.extern.slf4j.Slf4j;
 import pl.sda.homework.account.Account;
 
 import java.util.*;
 
-
+@Slf4j
 public class BookStorage {
     private Map<Book, Integer> bookStorage; //Storage : Key - book , Integer - amount of books
     private Account account;
@@ -14,7 +15,7 @@ public class BookStorage {
         bookStorage = new HashMap<>();
     }
 
-    public void setBookStorage(Map<Book,Integer> bookStorage) {
+    public void setBookStorage(Map<Book, Integer> bookStorage) {
         this.bookStorage = bookStorage;
     }
 
@@ -63,7 +64,7 @@ public class BookStorage {
         return 0;
     }
 
-    public void sellBook(String nameOfAuthor, String title, int amountOfBooks) {
+    public boolean sellBook(String nameOfAuthor, String title, int amountOfBooks) {
 
         Book bookToSell = new Book(nameOfAuthor, title);
 
@@ -73,16 +74,19 @@ public class BookStorage {
             if (centuryAmountsBooks > 0) {
                 bookStorage.put(bookToSell, centuryAmountsBooks - amountOfBooks);
                 account.addMoneyToAccount(15.50 * amountOfBooks);
+                log.info("KUPILES KSIAZKE : " + bookToSell);
+                return true;
 
-                System.out.println("KUPILES KSIAZKE : " + bookToSell);
+
             } else {
-                System.out.println(bookToSell);
-                System.out.println("Ksiazka zostala wyprzedana zapraszamy w krotce");
+                log.info(bookToSell + "\n Ksiazka zostala wyprzedana zapraszamy w krotce");
+                return false;
             }
 
         } else {
-            System.out.println("Nie mozna sprzedac tej ksiazki, gdyz nie ma jej na magazynie");
+            log.info("Nie mozna sprzedac tej ksiazki, gdyz nie ma jej na magazynie");
         }
+        return false;
     }
 
     public Map<Book, Integer> returnSortedStorageInGrowing() {
@@ -106,12 +110,10 @@ public class BookStorage {
 
         }
 
-        sortedMap.forEach((key, value) -> System.out.println(key + " \n szt. na magazynie: " + value + "\n"));
+        sortedMap.forEach((key, value) -> log.info(key + " \n szt. na magazynie: " + value + "\n"));
 
         return sortedMap;
     }
-
-
 
 
 //    public void returnedStoredLessThen10SortedInGrowing () {

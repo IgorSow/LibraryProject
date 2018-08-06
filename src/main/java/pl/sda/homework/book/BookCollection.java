@@ -22,13 +22,7 @@ public class BookCollection {
 
 
     public void addBook(Book book) {
-        //dodać książkę do kolekcji
         bookCollection.add(book);
-//        bookStorage.put(book, 0);
-//        // TODO dla chętnych - jesli dodajemy do kolekcji książek nową pozycje
-//        // to w magazynie powinna pojawić się taka z ilością 0.
-//
-//        System.out.println("Dodano nową książkę do kolekcji: " + book);
     }
 
     public int collectionSize() { // metoda pomocna do junitów - nie potrzebna do działania programu
@@ -43,7 +37,6 @@ public class BookCollection {
 
         }
     }
-
 
     public boolean findAuthorInCollection(String nameOfAuthor) { // metoda na potrzeby testow
 
