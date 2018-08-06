@@ -15,7 +15,8 @@ public class MenuOrder {
         log.info("Jestes w menu zamówień / koszyk");
         log.info("1. Wyswietl dostępne książki");
         log.info("2. Podaj ktora ksiazke chcesz dodac do koszyka");
-        log.info("3. ");
+        log.info("3. Wyświetl obcje rabatowe i ile pozostało do konkretnej promocji");
+        log.info("4. Zamknij koszyk i złóz zamówienie ");
         log.info("5. Powrot do menu głównego");
 
 
@@ -31,7 +32,8 @@ public class MenuOrder {
             }
             scanner.nextLine();
             switch (chosenOption) {
-
+                case 1:
+                    shopManager.showBookStorage();
 
                 case 5:
                     repeat = false;

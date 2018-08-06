@@ -8,7 +8,7 @@ import java.util.*;
 @Slf4j
 public class BookStorage {
     private Map<Book, Integer> bookStorage; //Storage : Key - book , Integer - amount of books
-    private Account account;
+
 
     public BookStorage() {
 
@@ -73,7 +73,7 @@ public class BookStorage {
 
             if (centuryAmountsBooks > 0) {
                 bookStorage.put(bookToSell, centuryAmountsBooks - amountOfBooks);
-                account.addMoneyToAccount(15.50 * amountOfBooks);
+
                 log.info("KUPILES KSIAZKE : " + bookToSell);
                 return true;
 

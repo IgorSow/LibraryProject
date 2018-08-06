@@ -16,6 +16,7 @@ public class ShopManager {
     public  ShopManager() {
         this.bookCollection = new BookCollection();
         this.bookStorage = new BookStorage();
+        this.account = new Account();
 
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
         Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
@@ -98,6 +99,10 @@ public class ShopManager {
 
 
     //import method from storage
+
+    public void showBookStorage(){
+        bookStorage.showBookStore();
+    }
     public void addBookToStorage(String author, String title, int amountOfBooks) {
         bookStorage.addBookToStorage(author,title,amountOfBooks);
     }
