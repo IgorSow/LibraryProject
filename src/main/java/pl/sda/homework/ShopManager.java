@@ -1,9 +1,10 @@
-package pl.sda.bookShop;
+package pl.sda.homework;
 
-import pl.sda.bookShop.book.Book;
-import pl.sda.bookShop.book.BookCollection;
-import pl.sda.bookShop.book.BookStorage;
-import pl.sda.bookShop.account.Account;
+import pl.sda.homework.book.Book;
+import pl.sda.homework.book.BookBasket;
+import pl.sda.homework.book.BookCollection;
+import pl.sda.homework.book.BookStorage;
+import pl.sda.homework.account.Account;
 
 import java.util.List;
 
@@ -11,12 +12,19 @@ public class ShopManager {
 
     private BookCollection bookCollection;
     private BookStorage bookStorage;
+    private BookBasket bookBasket;
     private Account account;
+
+
 
     public  ShopManager() {
         this.bookCollection = new BookCollection();
         this.bookStorage = new BookStorage();
+        this.bookBasket = new BookBasket();
         this.account = new Account();
+
+
+
 
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
         Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
@@ -61,9 +69,11 @@ public class ShopManager {
 //    }
 
 
-/*
-/ import method from Collection
-*/
+
+
+    /*
+    / import method from Collection
+    */
     public void addBookToCollection(Book newBook) {
         bookCollection.addBook(newBook);
         bookStorage.addBook(newBook,0);
@@ -103,6 +113,7 @@ public class ShopManager {
     public void showBookStorage(){
         bookStorage.showBookStore();
     }
+
     public void addBookToStorage(String author, String title, int amountOfBooks) {
         bookStorage.addBookToStorage(author,title,amountOfBooks);
     }
@@ -117,5 +128,29 @@ public class ShopManager {
         bookStorage.returnSortedStorageInGrowing();
     }
 
+    public void removeListOfBooksFromStorage(List<Book> listOfBooksToRemove){
+        bookStorage.removeListOfBooks(listOfBooksToRemove);
+    }
 
+
+
+    // method manage bookBasket
+
+    public void addBookToBasket(Book bookToAdd) {
+        bookBasket.addBookToBasket(bookToAdd);
+    }
+
+
+    public void closeBasketAndFinalizeOrder() {
+
+        removeListOfBooksFromStorage(bookBasket.getBasket());
+        account.addMoneyToAccount(bookBasket.getValueOfBasket());
+
+
+
+    }
+
+    public void showDiscounts() {
+    }
 }
+

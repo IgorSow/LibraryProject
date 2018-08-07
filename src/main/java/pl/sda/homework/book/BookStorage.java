@@ -1,4 +1,4 @@
-package pl.sda.bookShop.book;
+package pl.sda.homework.book;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -64,11 +64,19 @@ public class BookStorage {
     }
 
 
-    public void removeBook(Book bookToRemove, int amountOfBooksToRemove) {
+    private void removeBook(Book bookToRemove, int amountOfBooksToRemove) {
         int centuryAmountsBooks = bookStorage.get(bookToRemove);
 
         bookStorage.put(bookToRemove, centuryAmountsBooks - amountOfBooksToRemove);
     }
+
+//    public Book returnOneBookByTitle(String nameOfAuthor, String title) {
+//        Book bookToRemove = new Book(nameOfAuthor, title);
+//
+//        if (bookStorage.containsKey(bookToRemove)){
+//            return bookStorage
+//        }
+//    }
 
 
     /*

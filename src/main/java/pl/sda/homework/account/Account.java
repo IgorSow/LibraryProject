@@ -1,4 +1,4 @@
-package pl.sda.bookShop.account;
+package pl.sda.homework.account;
 
 
 public class Account {

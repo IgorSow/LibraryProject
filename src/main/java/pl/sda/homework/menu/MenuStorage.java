@@ -1,8 +1,8 @@
-package pl.sda.bookShop.menu;
+package pl.sda.homework.menu;
 
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.bookShop.ShopManager;
+import pl.sda.homework.ShopManager;
 
 
 import java.util.InputMismatchException;

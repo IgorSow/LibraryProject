@@ -1,7 +1,8 @@
-package pl.sda.bookShop.menu;
+package pl.sda.homework.menu;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.bookShop.ShopManager;
+import pl.sda.homework.ShopManager;
+import pl.sda.homework.book.Book;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,6 +12,9 @@ public class MenuOrder {
 
     public static void MenuOrder(ShopManager shopManager) {
         Scanner scanner = new Scanner(System.in);
+//        BookBasket basket = new ArrayList<Book>();
+//        List<Book> bookList = new ArrayList<>();
+
 
         log.info("Jestes w menu zamówień / koszyk");
         log.info("1. Wyswietl dostępne książki");
@@ -36,7 +40,17 @@ public class MenuOrder {
                     shopManager.showBookStorage();
 
                 case 2:
-                    shopManager.ge
+                    Book book = new Book("Jakub Ćwiek", "Kłamca");
+                    Book book2 = new Book("Jakub Ćwiek", "Kłamca");
+
+                   shopManager.addBookToBasket(book);
+                   shopManager.addBookToBasket(book2);
+
+                case 3:
+                    shopManager.showDiscounts();
+
+                case 4:
+                    shopManager.closeBasketAndFinalizeOrder();
 
                 case 5:
                     repeat = false;

@@ -1,7 +1,7 @@
-package pl.sda.bookShop;
+package pl.sda.homework;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.bookShop.menu.MenuPrimary;
+import pl.sda.homework.menu.MenuPrimary;
 
 
 @Slf4j

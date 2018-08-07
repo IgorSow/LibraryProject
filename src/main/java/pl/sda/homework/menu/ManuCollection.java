@@ -1,8 +1,8 @@
-package pl.sda.bookShop.menu;
+package pl.sda.homework.menu;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sda.bookShop.ShopManager;
-import pl.sda.bookShop.book.Book;
+import pl.sda.homework.ShopManager;
+import pl.sda.homework.book.Book;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -42,7 +42,7 @@ public class ManuCollection {
             switch (chosenOption) {
 
                 case 1:
-                    shopManager.getBookCollection().showBookCollection();
+                    shopManager.showBookCollection();
                     break;
 
                 case 2:

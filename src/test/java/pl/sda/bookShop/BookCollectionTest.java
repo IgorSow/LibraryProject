@@ -1,8 +1,8 @@
 package pl.sda.bookShop;
 
 import org.junit.jupiter.api.Test;
-import pl.sda.bookShop.book.Book;
-import pl.sda.bookShop.book.BookCollection;
+import pl.sda.homework.book.Book;
+import pl.sda.homework.book.BookCollection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
