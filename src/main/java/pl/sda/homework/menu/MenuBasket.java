@@ -18,18 +18,17 @@ public class MenuBasket {
         boolean repeat = true;
         while (repeat) {
 
-        log.info("Jestes w menu zamówień / koszyk");
-        log.info("1. Wyswietl dostępne książki w sklepie");
-        log.info("2. Podaj ktora ksiazke chcesz dodac do koszyka");
-        log.info("3. Wyświetl obcje rabatowe i ile pozostało do konkretnej promocji");
-        log.info("4. Zamknij koszyk i złóz zamówienie ");
-        log.info("5. Wyświetl zawartość koszyka");
-        log.info("6. Powrot do menu głównego");
+            log.info("Jestes w menu zamówień / koszyk");
+            log.info("1. Wyswietl dostępne książki w sklepie");
+            log.info("2. Podaj autora i tytuł ksiązki, która chcesz kupic");
+            log.info("3. Podaj numer pozadkowy ksiazki, który chcesz dodac do koszyka");
+            log.info("4. Wyświetl obcje rabatowe i ile pozostało do konkretnej promocji");
+            log.info("5. Zamknij koszyk i złóz zamówienie ");
+            log.info("6. Wyświetl zawartość koszyka");
+            log.info("7. Powrot do menu głównego");
 
 
-
-
-            int chosenOption =0;
+            int chosenOption = 0;
             try {
                 chosenOption = scanner.nextInt();
             } catch (InputMismatchException e) {
@@ -42,29 +41,31 @@ public class MenuBasket {
                     shopManager.showBookStorage();
                     break;
                 case 2:
+                    log.info("Podaj autora");
+                    String[] bookToAddToBasket = scanner.nextLine().split(",");
+                    Book book = new Book(bookToAddToBasket[0], bookToAddToBasket[1]);
+                    shopManager.addBookToBasket(book);
 
-                    log.info("Przykladowe ksiazki dodane");
-                    Book book = new Book("Jakub Ćwiek", "Kłamca");
-                    Book book2 = new Book("Jakub Ćwiek", "Kłamca");
-
-                   shopManager.addBookToBasket(book);
-                   shopManager.addBookToBasket(book2);
-                   break;
-
-                case 3:
-                    shopManager.showDiscounts();
                     break;
+                case 3:
+                    log.info("Podaj numer pożadkowy ksiązki do kupna");
+                    shopManager.addBookToBasketByChoseNumber(scanner.nextInt());
 
                 case 4:
-                    shopManager.closeBasketAndFinalizeOrder();
+                    shopManager.showDiscounts();
                     break;
                 case 5:
+                    shopManager.closeBasketAndFinalizeOrder();
+                    break;
+                case 6:
                     shopManager.showBasket();
                     break;
 
-                case 6:
+                case 7:
                     repeat = false;
                     break;
+                default:
+                    log.error("W menu mozna wybierac tylko liczby od 1 do 6");
             }
         }
     }

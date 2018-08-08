@@ -23,14 +23,18 @@ public class MenuPrimary {
             log.info("1. Przejdz do menu kolekcji");
             log.info("2. Przejdz do menu magazynu");
             log.info("3. Przejdz do menu zamówień/sklepu");
+            log.info("4. Przejdz do menu konta");
 
             int chosenOption = 0;
             try {
                 chosenOption = scanner.nextInt();
-            } catch (Exception a) {
-                log.error("W menu mozna wybierac tylko liczby od 1 do 3");
+            } catch (Exception e) {
+                log.error("W menu mozna wybierac tylko liczby od 1 do 4");
                 scanner.next();
             }
+
+
+            try {
 
             switch (chosenOption) {
                 case 1:
@@ -45,7 +49,11 @@ public class MenuPrimary {
                 case 4:
                     menuAccount(shopManager);
                 default:
-                    System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
+                    log.error("W menu mozna wybierac tylko liczby od 1 do 4");
+            }
+
+            }catch (Exception e){
+                log.error("Wykonałeś nie odpowienie działanie \n");
             }
 
         }

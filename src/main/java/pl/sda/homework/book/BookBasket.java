@@ -36,7 +36,14 @@ public class BookBasket {
     }
 
     public void showBasket() {
+        if (basket.isEmpty()){
+            log.info("Twój koszyk jest pusty \n");
+        }
 
         basket.forEach(book -> System.out.println(book));
+    }
+
+    public void cleanBasket() {
+        basket.clear();
     }
 }

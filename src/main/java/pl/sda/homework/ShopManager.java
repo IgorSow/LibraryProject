@@ -1,13 +1,16 @@
 package pl.sda.homework;
 
+import lombok.extern.slf4j.Slf4j;
 import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookBasket;
 import pl.sda.homework.book.BookCollection;
 import pl.sda.homework.book.BookStorage;
 import pl.sda.homework.account.Account;
 
+import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 public class ShopManager {
 
     private BookCollection bookCollection;
@@ -49,23 +52,6 @@ public class ShopManager {
         bookStorage.addBook(book7, 22);
     }
 
-//    public BookCollection getBookCollection() {
-//        return bookCollection;
-//    }
-//
-//    public void setBookCollection(BookCollection bookCollection) {
-//        this.bookCollection = bookCollection;
-//    }
-//
-//    public BookStorage getBookStorage() {
-//        return bookStorage;
-//    }
-//
-//    public void setBookStorage(BookStorage bookStorage) {
-//        this.bookStorage = bookStorage;
-//    }
-
-
     /*
     / import method from Collection
     */
@@ -102,6 +88,24 @@ public class ShopManager {
         return bookCollection.returnAuthorsCollectionsSortedByOption(nameOfAuthor, orderOfList);
     }
 
+    public List<Book> returnBooksContainsTitle(String titleToFind) {
+
+       return bookCollection.returnBooksContainsTitle(titleToFind);
+    }
+
+    //method used by test
+    public int collectionSize() {
+        return bookCollection.collectionSize();
+    }
+
+    public boolean findAuthorInCollection(String nameOfAuthor) {
+        return bookCollection.findAuthorInCollection(nameOfAuthor);
+    }
+
+
+
+
+
 
     //import method from storage
 
@@ -127,11 +131,50 @@ public class ShopManager {
         bookStorage.removeListOfBooks(listOfBooksToRemove);
     }
 
+    private Book returnBookByOrdialNumber(int numberOfBookToReturn) {
+        return bookStorage.returnBookByOrdialNumber(numberOfBookToReturn);
+    }
+
+    //method used by test
+    public int bookStorageSize() {
+       return bookStorage.getBookStorageSize();
+    }
+
+    public int getBookStorageSize() {
+       return bookStorage.getBookStorageSize();
+    }
+
+
+
 
     // method manage bookBasket
 
     public void addBookToBasket(Book bookToAdd) {
-        bookBasket.addBookToBasket(bookToAdd);
+
+        int amountOfBooksInStorage = bookStorage.getValueOfBookfromStorage(bookToAdd);
+
+        int amountOfBooksInBasket = Collections.frequency(bookBasket.getBasket(), bookToAdd);
+
+
+        if (amountOfBooksInStorage >= amountOfBooksInBasket) {
+            bookBasket.addBookToBasket(bookToAdd);
+        } else
+            log.info("Ksiązki juz się skończyły zapraszamy wkrótce \n");
+    }
+
+
+    public void addBookToBasketByChoseNumber(int numberOfBookToReturn) {
+        Book bookToAdd = returnBookByOrdialNumber(numberOfBookToReturn);
+
+        int amountOfBooksInStorage = bookStorage.getValueOfBookfromStorage(bookToAdd);
+
+        int amountOfBooksInBasket = Collections.frequency(bookBasket.getBasket(), bookToAdd);
+
+
+        if (amountOfBooksInStorage >= amountOfBooksInBasket) {
+            bookBasket.addBookToBasket(bookToAdd);
+        } else
+            log.info("Ksiązki juz się skończyły zapraszamy wkrótce \n");
     }
 
     public void showBasket() {
@@ -143,15 +186,23 @@ public class ShopManager {
 
         removeListOfBooksFromStorage(bookBasket.getBasket());
         account.addMoneyToAccount(bookBasket.getValueOfBasket());
+        log.info("Dokonałes zakupów na kwotę " + bookBasket.getValueOfBasket() + "\n");
+        bookBasket.cleanBasket();
+
     }
 
     public void showDiscounts() {
     }
+
+
     /*
     / contain method with account
     */
     public double getAccountBalance() {
         return account.getBalance();
     }
+
+
+
 }
 

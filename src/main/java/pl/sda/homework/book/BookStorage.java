@@ -18,12 +18,23 @@ public class BookStorage {
         this.bookStorage = bookStorage;
     }
 
+    public Map<Book, Integer> getBookStorage() {
+        return bookStorage;
+    }
+
+    public int getValueOfBookfromStorage(Book book){
+
+       return bookStorage.get(book).intValue();
+    }
+
+
+
     public void showBookStore() {
         bookStorage.forEach((key, value) -> System.out.println(key + " \n szt. na magazynie: " + value + "\n"));
 
     }
 
-    public int bookStorageSize() {
+    public int getBookStorageSize() {
         return bookStorage.size();
     }
 
@@ -61,6 +72,19 @@ public class BookStorage {
             System.out.println("Nie ma takiej ksiazki na magazynie");
         }
         return 0;
+    }
+
+    public Book returnBookByOrdialNumber(int numberOfBookToReturn) {
+        Iterator<Map.Entry<Book, Integer>> iterator = bookStorage.entrySet().iterator();
+
+        Map.Entry<Book, Integer> findedBook=  (Map.Entry<Book, Integer>) iterator.next();
+
+        for (int i = 1; i < numberOfBookToReturn; i++){
+             findedBook=  (Map.Entry<Book, Integer>) iterator.next();
+
+        }
+        return findedBook.getKey();
+
     }
 
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
 @Slf4j
 public class ManuCollection {
 
-    public static void menuCollection(ShopManager shopManager ) {
+    public static void menuCollection(ShopManager shopManager) {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -30,7 +30,7 @@ public class ManuCollection {
             log.info("11. Powrót do menu głównego");
             log.info("");
 
-            int chosenOption =0;
+            int chosenOption = 0;
             try {
                 chosenOption = scanner.nextInt();
             } catch (InputMismatchException e) {
@@ -78,17 +78,17 @@ public class ManuCollection {
 
                 case 5:
                     log.info("Kolekcje książek posortowaną po tytule");
-                    shopManager.returnBooksSortedByTitle();
+                    log.info("\n " +shopManager.returnBooksSortedByTitle());
                     break;
 
                 case 6:
                     log.info("Kolekcje książek posortowaną po autorze");
-                    shopManager.returnBooksSortedByAuthor();
+                    log.info("\n " + shopManager.returnBooksSortedByAuthor());
                     break;
 
                 case 7:
                     log.info("Wyświetl kolekcje książek posortowaną od najlepsze do najgorszej");
-                    shopManager.returnBooksSortedByRating();
+                    log.info("\n " + shopManager.returnBooksSortedByRating());
                     break;
 
                 case 8:
@@ -96,27 +96,30 @@ public class ManuCollection {
                     log.info("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
                     String authorToReviewByTitle = scanner.nextLine();
                     log.info("Kolekcje książek podanego autora posortowane po tytule");
-                    System.out.println(shopManager.returnAuthorsCollectionsSortedByOption
+                    log.info("\n " + shopManager.returnAuthorsCollectionsSortedByOption
                             (authorToReviewByTitle, shopManager.returnBooksSortedByTitle()));
                     break;
 
                 case 9:
 
-                    System.out.println("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
+                    log.info("Podaj autora, ktorego ksiazki chcesz wyswietlic: ");
                     String authorToReviewByRating = scanner.nextLine();
-                    System.out.println("Kolekcje książek podanego autora posortowane od najlepszej do najgorszej");
-                    System.out.println(shopManager.returnAuthorsCollectionsSortedByOption
+                    log.info(" Kolekcje książek podanego autora posortowane od najlepszej do najgorszej"
+                            + shopManager.returnAuthorsCollectionsSortedByOption
                             (authorToReviewByRating, shopManager.returnBooksSortedByRating()));
                     break;
 
                 case 10:
-                    System.out.println("Opcja w przygotowaniu");
+                    log.info("Wyświetl wszystkie kolekcji książek - z filtrem po tytule");
+                    log.info("Podaj tytuł : ");
+
+                    log.info(" \n" + shopManager.returnBooksContainsTitle(scanner.nextLine()));
 
                 case 11:
                     repeat = false;
                     break;
                 default:
-                    System.out.println("W menu mozna wybierac tylko liczby od 1 do 10");
+                    log.error("W menu mozna wybierac tylko liczby od 1 do 10");
             }
         }
 

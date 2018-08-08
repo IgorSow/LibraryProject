@@ -1,6 +1,7 @@
 package pl.sda.bookShop;
 
 import org.junit.jupiter.api.Test;
+import pl.sda.homework.ShopManager;
 import pl.sda.homework.book.BookStorage;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,15 +11,15 @@ class BookStorageTest {
     @Test // option extra
     void shouldReturnReviewOfStorage(){
 
-        BookStorage bookStorage = new BookStorage();
-        bookStorage.showBookStore();
+        ShopManager bookStorage = new ShopManager();
+        bookStorage.showBookStorage();
     }
 
     @Test // option 10 test 1
     void shouldReturnAddBookToStorageIfBookExistInStore(){
 
         //given
-        BookStorage bookStorage = new BookStorage();
+        ShopManager bookStorage = new ShopManager();
         assertEquals(7, bookStorage.bookStorageSize());
 
         //then
@@ -33,15 +34,15 @@ class BookStorageTest {
     void shouldReturnAddBookToStorageIfBookNotExistInStore() {
 
         //given
-        BookStorage bookStorage = new BookStorage();
-        assertEquals(7, bookStorage.bookStorageSize());
+        ShopManager bookStorage = new ShopManager();
+        assertEquals(7, bookStorage.getBookStorageSize());
 
         //then
         bookStorage.addBookToStorage("Marcin Przybyłek", "Gamedec Zabaweczki", 10);
 
         //then
 
-        assertEquals(7, bookStorage.bookStorageSize());
+        assertEquals(7, bookStorage.getBookStorageSize());
     }
 
     @Test // option 11

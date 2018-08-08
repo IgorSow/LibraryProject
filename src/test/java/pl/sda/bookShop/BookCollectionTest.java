@@ -1,12 +1,14 @@
 package pl.sda.bookShop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import pl.sda.homework.ShopManager;
 import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookCollection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@Slf4j
 class BookCollectionTest {
 
     private final static String NOT_IMPORTANT_AUTHOR = "some author";
@@ -16,10 +18,10 @@ class BookCollectionTest {
     @Test //option 2
     void afterAddOneBookMyCollectionSizeShouldBeSeven() {
         //given
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
         assertEquals(7, bookCollection.collectionSize());
         //when
-        bookCollection.addBook(new Book(NOT_IMPORTANT_AUTHOR, NOT_IMPORTANT_TITLE, NOT_IMPORTANT_RATING));
+        bookCollection.addBookToCollection(new Book(NOT_IMPORTANT_AUTHOR, NOT_IMPORTANT_TITLE, NOT_IMPORTANT_RATING));
         //then
         assertEquals(8, bookCollection.collectionSize());
     }
@@ -29,7 +31,7 @@ class BookCollectionTest {
 
         //given
 
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
 
         assertEquals(7, bookCollection.collectionSize());
 
@@ -46,7 +48,7 @@ class BookCollectionTest {
     void shouldReturnedAllBooksWithoutBooksOfAuthor() {
 
         //given
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
         System.out.println(bookCollection.findAuthorInCollection("Brent Weeks"));
         assertTrue(bookCollection.findAuthorInCollection("Brent Weeks"));
 
@@ -62,14 +64,14 @@ class BookCollectionTest {
     void shouldReturnSortedCollectionByTitle() {
 
         //given
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
 
 
         //when
         bookCollection.returnBooksSortedByTitle();
 
         //then list in order by title
-        System.out.println(bookCollection.returnBooksSortedByTitle());
+        log.info("\n" + bookCollection.returnBooksSortedByTitle());
     }
 
     @Test // option 6
@@ -91,7 +93,7 @@ class BookCollectionTest {
 
         //given
 
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
         //when
         bookCollection.returnBooksSortedByRating();
 
@@ -104,28 +106,28 @@ class BookCollectionTest {
     void shouldReturnAuthorsCollectionsSortedByTitle() {
 
         //given
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
 
         //when
         bookCollection.returnAuthorsCollectionsSortedByOption
                 ("Brent Weeks", bookCollection.returnBooksSortedByTitle());
 
         // then
-        System.out.println(bookCollection.returnAuthorsCollectionsSortedByOption
+        log.info("\n " + bookCollection.returnAuthorsCollectionsSortedByOption
                 ("Brent Weeks", bookCollection.returnBooksSortedByTitle()));
     }
 
     @Test  //option 9
     void shouldReturnAuthorsCollectionsSortedByRating() {
         //given
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
 
         //when
         bookCollection.returnAuthorsCollectionsSortedByOption
                 ("Brent Weeks", bookCollection.returnBooksSortedByRating());
 
         // then
-        System.out.println(bookCollection.returnAuthorsCollectionsSortedByOption
+        log.info("\n" + bookCollection.returnAuthorsCollectionsSortedByOption
                 ("Brent Weeks", bookCollection.returnBooksSortedByRating()));
 
     }
@@ -133,7 +135,7 @@ class BookCollectionTest {
     @Test //option 10
     void shouldReturnBooksContainsTitle(){
         //given
-        BookCollection bookCollection = new BookCollection();
+        ShopManager bookCollection = new ShopManager();
 
         //then
         bookCollection.returnBooksContainsTitle("Pan");

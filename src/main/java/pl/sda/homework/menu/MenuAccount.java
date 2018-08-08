@@ -23,13 +23,14 @@ public class MenuAccount {
             try {
                 chosenOption = scanner.nextInt();
             } catch (Exception a) {
-                log.error("W menu mozna wybierac tylko liczby od 1 do 3");
+                log.error("W menu mozna wybierac tylko liczby od 1 do 2");
                 scanner.next();
             }
             switch (chosenOption) {
                 case 1:
-                    log.info("Stan konta: " + shopManager.getAccountBalance());
+                    log.info("Stan konta: " + shopManager.getAccountBalance() + "\n");
 
+                    break;
                 case 2:
                     repeat = false;
                     break;

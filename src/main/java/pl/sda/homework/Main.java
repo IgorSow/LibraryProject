@@ -11,10 +11,8 @@ public class Main {
 
         log.info("PROGRAM WROTE BY IGOR SOWINSKI");
 
-
         MenuPrimary.menuPrimary();
     }
-
 
 
 }
