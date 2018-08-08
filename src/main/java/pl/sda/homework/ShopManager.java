@@ -1,6 +1,7 @@
 package pl.sda.homework;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import pl.sda.homework.book.Book;
 import pl.sda.homework.book.BookBasket;
 import pl.sda.homework.book.BookCollection;
@@ -52,9 +53,26 @@ public class ShopManager {
         bookStorage.addBook(book7, 22);
     }
 
+    public BookCollection getBookCollection() {
+        return bookCollection;
+    }
+
+    public BookStorage getBookStorage() {
+        return bookStorage;
+    }
+
+    public BookBasket getBookBasket() {
+        return bookBasket;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+
     /*
-    / import method from Collection
-    */
+        / import method from Collection
+        */
     public void addBookToCollection(Book newBook) {
         bookCollection.addBook(newBook);
         bookStorage.addBook(newBook, 0);
@@ -90,7 +108,7 @@ public class ShopManager {
 
     public List<Book> returnBooksContainsTitle(String titleToFind) {
 
-       return bookCollection.returnBooksContainsTitle(titleToFind);
+        return bookCollection.returnBooksContainsTitle(titleToFind);
     }
 
     //method used by test
@@ -101,10 +119,6 @@ public class ShopManager {
     public boolean findAuthorInCollection(String nameOfAuthor) {
         return bookCollection.findAuthorInCollection(nameOfAuthor);
     }
-
-
-
-
 
 
     //import method from storage
@@ -137,14 +151,16 @@ public class ShopManager {
 
     //method used by test
     public int bookStorageSize() {
-       return bookStorage.getBookStorageSize();
+        return bookStorage.getBookStorageSize();
     }
 
     public int getBookStorageSize() {
-       return bookStorage.getBookStorageSize();
+        return bookStorage.getBookStorageSize();
     }
 
-
+    public int returnAmountOfBooksInStore(String nameOfAuthor, String title) {
+        return bookStorage.returnAmountOfBooksInStore(nameOfAuthor, title);
+    }
 
 
     // method manage bookBasket
@@ -181,6 +197,10 @@ public class ShopManager {
         bookBasket.showBasket();
     }
 
+    public int getSizeOfBasket() {
+        return bookBasket.getSizeOfBasket();
+    }
+
 
     public void closeBasketAndFinalizeOrder() {
 
@@ -192,6 +212,12 @@ public class ShopManager {
     }
 
     public void showDiscounts() {
+
+        log.info("Zniżki rabatowe: ");
+        log.info("Zniżki rabatowe: przy zakupie 3 książek 10%");
+        log.info("Zniżki rabatowe: przy zakupie 5 książek 20%");
+        log.info("Zniżki rabatowe: przy zakupie 7 książek 30%");
+
     }
 
 
@@ -201,7 +227,6 @@ public class ShopManager {
     public double getAccountBalance() {
         return account.getBalance();
     }
-
 
 
 }

@@ -94,14 +94,6 @@ public class BookStorage {
         bookStorage.put(bookToRemove, centuryAmountsBooks - amountOfBooksToRemove);
     }
 
-//    public Book returnOneBookByTitle(String nameOfAuthor, String title) {
-//        Book bookToRemove = new Book(nameOfAuthor, title);
-//
-//        if (bookStorage.containsKey(bookToRemove)){
-//            return bookStorage
-//        }
-//    }
-
 
     /*
     if you want to remove more than one books. List have to have duplicates of books at list.
@@ -172,5 +164,21 @@ public class BookStorage {
 //
 //        returnSortedStorageInGrowing().forEach((key, value) -> Math.subtractExact(value-10)(key + value));
 //    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BookStorage that = (BookStorage) o;
+
+        return bookStorage.equals(that.bookStorage);
+    }
+
+    @Override
+    public int hashCode() {
+        return bookStorage.hashCode();
+    }
 }
 

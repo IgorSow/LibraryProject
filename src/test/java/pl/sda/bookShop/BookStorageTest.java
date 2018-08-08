@@ -48,7 +48,7 @@ class BookStorageTest {
     @Test // option 11
     void shouldReturnBookToSell(){
         //given
-        BookStorage bookStorage = new BookStorage();
+        ShopManager bookStorage = new ShopManager();
         assertEquals(22, bookStorage.returnAmountOfBooksInStore("Marcin Przybyłek", "Gamedec Zabaweczki"));
 
         //then
@@ -71,7 +71,4 @@ class BookStorageTest {
         bookStorage.returnSortedStorageInGrowing();
 
     }
-
-
-
 }
