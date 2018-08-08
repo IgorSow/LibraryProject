@@ -1,8 +1,11 @@
 package pl.sda.homework.book;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class BookBasket {
     private List<Book> basket = new ArrayList<>();
 
@@ -32,4 +35,8 @@ public class BookBasket {
        return basket.size();
     }
 
+    public void showBasket() {
+
+        basket.forEach(book -> System.out.println(book));
+    }
 }

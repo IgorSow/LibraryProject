@@ -16,14 +16,11 @@ public class ShopManager {
     private Account account;
 
 
-
-    public  ShopManager() {
+    public ShopManager() {
         this.bookCollection = new BookCollection();
         this.bookStorage = new BookStorage();
         this.bookBasket = new BookBasket();
         this.account = new Account();
-
-
 
 
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
@@ -44,7 +41,7 @@ public class ShopManager {
         bookCollection.addBook(book6);
 
         bookStorage.addBook(book1, 7);
-        bookStorage.addBook(book2,1);
+        bookStorage.addBook(book2, 1);
         bookStorage.addBook(book3, 11);
         bookStorage.addBook(book4, 22);
         bookStorage.addBook(book5, 9);
@@ -69,14 +66,12 @@ public class ShopManager {
 //    }
 
 
-
-
     /*
     / import method from Collection
     */
     public void addBookToCollection(Book newBook) {
         bookCollection.addBook(newBook);
-        bookStorage.addBook(newBook,0);
+        bookStorage.addBook(newBook, 0);
     }
 
     public void showBookCollection() {
@@ -104,22 +99,22 @@ public class ShopManager {
     }
 
     public List<Book> returnAuthorsCollectionsSortedByOption(String nameOfAuthor, List<Book> orderOfList) {
-       return bookCollection.returnAuthorsCollectionsSortedByOption(nameOfAuthor,orderOfList);
+        return bookCollection.returnAuthorsCollectionsSortedByOption(nameOfAuthor, orderOfList);
     }
 
 
     //import method from storage
 
-    public void showBookStorage(){
+    public void showBookStorage() {
         bookStorage.showBookStore();
     }
 
     public void addBookToStorage(String author, String title, int amountOfBooks) {
-        bookStorage.addBookToStorage(author,title,amountOfBooks);
+        bookStorage.addBookToStorage(author, title, amountOfBooks);
     }
 
     public void sellBook(String nameOfAuthor, String title2, int amountOfBooks2) {
-        if (bookStorage.sellBook(nameOfAuthor,title2,amountOfBooks2) == true){
+        if (bookStorage.sellBook(nameOfAuthor, title2, amountOfBooks2) == true) {
             account.addMoneyToAccount(14.55);
         }
     }
@@ -128,10 +123,9 @@ public class ShopManager {
         bookStorage.returnSortedStorageInGrowing();
     }
 
-    public void removeListOfBooksFromStorage(List<Book> listOfBooksToRemove){
+    public void removeListOfBooksFromStorage(List<Book> listOfBooksToRemove) {
         bookStorage.removeListOfBooks(listOfBooksToRemove);
     }
-
 
 
     // method manage bookBasket
@@ -140,17 +134,24 @@ public class ShopManager {
         bookBasket.addBookToBasket(bookToAdd);
     }
 
+    public void showBasket() {
+        bookBasket.showBasket();
+    }
+
 
     public void closeBasketAndFinalizeOrder() {
 
         removeListOfBooksFromStorage(bookBasket.getBasket());
         account.addMoneyToAccount(bookBasket.getValueOfBasket());
-
-
-
     }
 
     public void showDiscounts() {
+    }
+    /*
+    / contain method with account
+    */
+    public double getAccountBalance() {
+        return account.getBalance();
     }
 }
 

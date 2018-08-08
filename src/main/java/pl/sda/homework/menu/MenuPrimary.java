@@ -6,7 +6,8 @@ import pl.sda.homework.ShopManager;
 import java.util.Scanner;
 
 import static pl.sda.homework.menu.ManuCollection.menuCollection;
-import static pl.sda.homework.menu.MenuOrder.MenuOrder;
+import static pl.sda.homework.menu.MenuAccount.menuAccount;
+import static pl.sda.homework.menu.MenuBasket.menuOrder;
 import static pl.sda.homework.menu.MenuStorage.menuStore;
 
 @Slf4j
@@ -39,8 +40,10 @@ public class MenuPrimary {
                     menuStore(shopManager);
                     break;
                 case 3:
-                    MenuOrder(shopManager);
+                    menuOrder(shopManager);
                     break;
+                case 4:
+                    menuAccount(shopManager);
                 default:
                     System.out.println("W menu mozna wybierac tylko liczby od 1 do 3");
             }
