@@ -11,7 +11,6 @@ public class BookCollection {
         bookCollection = new HashSet<>();
     }
 
-
     public Set<Book> getBookCollection() {
         return bookCollection;
     }
@@ -19,6 +18,7 @@ public class BookCollection {
     public void setBookCollection(Set<Book> bookCollection) {
         this.bookCollection = bookCollection;
     }
+
 
 
     public void addBook(Book book) {

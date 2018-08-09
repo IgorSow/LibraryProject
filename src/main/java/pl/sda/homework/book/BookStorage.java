@@ -87,7 +87,6 @@ public class BookStorage {
 
     }
 
-
     private void removeBook(Book bookToRemove, int amountOfBooksToRemove) {
         int centuryAmountsBooks = bookStorage.get(bookToRemove);
 
@@ -106,7 +105,6 @@ public class BookStorage {
             }
         }
     }
-
 
     public boolean sellBook(String nameOfAuthor, String title, int amountOfBooks) {
 
@@ -158,12 +156,6 @@ public class BookStorage {
 
         return sortedMap;
     }
-
-
-//    public void returnedStoredLessThen10SortedInGrowing () {
-//
-//        returnSortedStorageInGrowing().forEach((key, value) -> Math.subtractExact(value-10)(key + value));
-//    }
 
 
     @Override

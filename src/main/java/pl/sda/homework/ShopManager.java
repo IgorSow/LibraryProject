@@ -71,8 +71,8 @@ public class ShopManager {
 
 
     /*
-        / import method from Collection
-        */
+    / import method from Collection
+    */
     public void addBookToCollection(Book newBook) {
         bookCollection.addBook(newBook);
         bookStorage.addBook(newBook, 0);
@@ -110,6 +110,7 @@ public class ShopManager {
 
         return bookCollection.returnBooksContainsTitle(titleToFind);
     }
+
 
     //method used by test
     public int collectionSize() {
@@ -149,7 +150,9 @@ public class ShopManager {
         return bookStorage.returnBookByOrdialNumber(numberOfBookToReturn);
     }
 
+
     //method used by test
+
     public int bookStorageSize() {
         return bookStorage.getBookStorageSize();
     }
@@ -178,7 +181,6 @@ public class ShopManager {
             log.info("Ksiązki juz się skończyły zapraszamy wkrótce \n");
     }
 
-
     public void addBookToBasketByChoseNumber(int numberOfBookToReturn) {
         Book bookToAdd = returnBookByOrdialNumber(numberOfBookToReturn);
 
@@ -200,7 +202,6 @@ public class ShopManager {
     public int getSizeOfBasket() {
         return bookBasket.getSizeOfBasket();
     }
-
 
     public void closeBasketAndFinalizeOrder() {
 

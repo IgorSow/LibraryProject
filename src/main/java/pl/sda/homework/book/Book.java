@@ -1,5 +1,5 @@
 package pl.sda.homework.book;
-public class Book{
+public class Book {
 
     private final String author;
     private final String title;
@@ -57,20 +57,12 @@ public class Book{
     }
 
     @Override
-    public int hashCode() {
-        int result = author != null ? author.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
-        return  "Author : " + author + '\n' +
+        return "Author : " + author + '\n' +
                 "Title : " + title + '\n' +
                 "Average Rating : " + rating + '\n' +
                 "Price book: " + price + '\n' +
                 "";
     }
 
-//
 }
