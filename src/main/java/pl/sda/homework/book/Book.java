@@ -11,14 +11,14 @@ public class Book{
         this.author = author;
         this.title = title;
         this.rating = 0;
-        this.price = 14.99;
+        this.price = 10.00;
     }
 
     public Book(String author, String title, double rating) {
         this.author = author;
         this.title = title;
         this.rating = rating;
-        this.price = 14.99;
+        this.price = 10.00;
     }
 
     public String getAuthor() {

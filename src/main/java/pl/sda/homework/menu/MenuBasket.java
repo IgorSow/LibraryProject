@@ -40,27 +40,30 @@ public class MenuBasket {
                 case 1:
                     shopManager.showBookStorage();
                     break;
+
                 case 2:
                     log.info("Podaj autora");
                     String[] bookToAddToBasket = scanner.nextLine().split(",");
                     Book book = new Book(bookToAddToBasket[0], bookToAddToBasket[1]);
                     shopManager.addBookToBasket(book);
-
                     break;
+
                 case 3:
                     log.info("Podaj numer pożadkowy ksiązki do kupna");
                     shopManager.addBookToBasketByChoseNumber(scanner.nextInt());
+                    break;
 
                 case 4:
                     shopManager.showDiscounts();
                     break;
+
                 case 5:
                     shopManager.closeBasketAndFinalizeOrder();
                     break;
+
                 case 6:
                     shopManager.showBasket();
                     break;
-
                 case 7:
                     repeat = false;
                     break;

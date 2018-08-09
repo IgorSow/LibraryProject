@@ -27,42 +27,53 @@ public class BookBasket {
         if (basket.size() >= 7) {
             for (int i = 0; i < basket.size(); i++) {
                 ret += basket.get(i).getPrice();
-                log.info("Twoja zniszka na ksiazki to 30 %");
-                return ret * 0.7;
+
             }
-        } else if (basket.size() >= 5)
+            log.info("Twoja zniszka na ksiazki to 30 %");
+            return ret * 0.7;
+
+
+        } else if (basket.size() >= 5) {
             for (int i = 0; i < basket.size(); i++) {
                 ret += basket.get(i).getPrice();
-                log.info("Twoja zniszka na ksiazki to 20 %");
-                return ret * 0.8;
+
             }
-        else if (basket.size() >= 3)
+            log.info("Twoja zniszka na ksiazki to 20 %");
+            return ret * 0.8;
+
+
+        } else if (basket.size() >= 3) {
 
             for (int i = 0; i < basket.size(); i++) {
                 ret += basket.get(i).getPrice();
-                log.info("Twoja zniszka na ksiazki to 20 %");
-                return ret * 0.9;
 
             }
-        for (int i = 0; i < basket.size(); i++) {
-            ret += basket.get(i).getPrice();
+            log.info("Twoja zniszka na ksiazki to 10 %");
+            return ret * 0.9;
 
-        }return ret;
-    }
 
-        public int getSizeOfBasket() {
-            return basket.size();
-        }
-
-        public void showBasket () {
-            if (basket.isEmpty()) {
-                log.info("Twój koszyk jest pusty \n");
+        } else {
+            for (int i = 0; i < basket.size(); i++) {
+                ret += basket.get(i).getPrice();
             }
-
-            basket.forEach(book -> System.out.println(book));
+            return ret;
         }
 
-        public void cleanBasket () {
-            basket.clear();
-        }
     }
+
+    public int getSizeOfBasket() {
+        return basket.size();
+    }
+
+    public void showBasket() {
+        if (basket.isEmpty()) {
+            log.info("Twój koszyk jest pusty \n");
+        }
+
+        basket.forEach(book -> System.out.println(book));
+    }
+
+    public void cleanBasket() {
+        basket.clear();
+    }
+}

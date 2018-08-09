@@ -212,12 +212,10 @@ public class ShopManager {
     }
 
     public void showDiscounts() {
-
         log.info("Zniżki rabatowe: ");
         log.info("Zniżki rabatowe: przy zakupie 3 książek 10%");
         log.info("Zniżki rabatowe: przy zakupie 5 książek 20%");
         log.info("Zniżki rabatowe: przy zakupie 7 książek 30%");
-
     }
 
 
