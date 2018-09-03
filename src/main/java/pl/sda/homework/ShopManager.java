@@ -7,7 +7,9 @@ import pl.sda.homework.book.BookBasket;
 import pl.sda.homework.book.BookCollection;
 import pl.sda.homework.book.BookStorage;
 import pl.sda.homework.account.Account;
+import pl.sda.homework.database.Database;
 
+import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class ShopManager {
     private BookStorage bookStorage;
     private BookBasket bookBasket;
     private Account account;
+    private Database myDatabase;
 
 
     public ShopManager() {
@@ -26,10 +29,15 @@ public class ShopManager {
         this.bookBasket = new BookBasket();
         this.account = new Account();
 
+        try {
+            this.myDatabase = new Database("jdbc:mysql://localhost:3306/mystorage", "root", "1234");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         Book book7 = new Book("Brent Weeks", "Nie znana", 1.0);
-        Book book1 = new Book("Jakub Ćwiek", "Kłamca", 7.5);
-        Book book2 = new Book("Jarosław Grzędowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);
+        Book book1 = new Book("Jakub Cwiek", "KLamca", 7.5);
+        Book book2 = new Book("JarosLaw Grzedowicz", "Pan Lodowego Ogrodu TOM 1", 8.3);
         Book book3 = new Book("Andrzej Sapkowski", "Pani Jeziorna", 1.0);
         Book book4 = new Book("Marcin Przybyłek", "Gamedec Zabaweczki", 7.1);
         Book book5 = new Book("Brent Weeks", "Czarny Pryzmat", 9.1);
@@ -44,6 +52,20 @@ public class ShopManager {
         bookCollection.addBook(book5);
         bookCollection.addBook(book6);
 
+        try {
+            myDatabase.connect();
+            myDatabase.addBook(book1);
+            myDatabase.addBook(book2);
+            myDatabase.addBook(book3);
+            myDatabase.addBook(book4);
+            myDatabase.addBook(book5);
+            myDatabase.addBook(book6);
+            myDatabase.addBook(book7);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         bookStorage.addBook(book1, 7);
         bookStorage.addBook(book2, 1);
         bookStorage.addBook(book3, 11);
@@ -51,7 +73,27 @@ public class ShopManager {
         bookStorage.addBook(book5, 9);
         bookStorage.addBook(book6, 47);
         bookStorage.addBook(book7, 22);
+
+        try {
+            myDatabase.addAmountToStorage(book1, 7);
+            myDatabase.addAmountToStorage(book2, 1);
+            myDatabase.addAmountToStorage(book3, 11);
+            myDatabase.addAmountToStorage(book4, 22);
+            myDatabase.addAmountToStorage(book5, 9);
+            myDatabase.addAmountToStorage(book6, 47);
+            myDatabase.addAmountToStorage(book7, 22);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
     }
+
+
 
     public BookCollection getBookCollection() {
         return bookCollection;

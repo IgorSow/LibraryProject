@@ -3,7 +3,9 @@ package pl.sda.homework.menu;
 import lombok.extern.slf4j.Slf4j;
 import pl.sda.homework.ShopManager;
 
+import java.sql.Time;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import static pl.sda.homework.menu.ManuCollection.menuCollection;
 import static pl.sda.homework.menu.MenuAccount.menuAccount;
@@ -17,6 +19,11 @@ public class MenuPrimary {
         Scanner scanner = new Scanner(System.in);
         ShopManager shopManager = new ShopManager();
 
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         boolean repeat = true;
         while (repeat) {
             log.info("Jestes w menu glównym");
